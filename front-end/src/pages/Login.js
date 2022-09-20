@@ -1,5 +1,9 @@
+import LoginInput from '../components/LoginInput';
+
 function Login() {
-  return <h1>login</h1>;
+  return (
+    <LoginInput />
+  );
 }
 
 export default Login;
