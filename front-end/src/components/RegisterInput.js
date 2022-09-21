@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Button from './Button';
 
 export default function RegisterInput() {
   const [userName, setUserName] = useState('');
@@ -54,13 +55,12 @@ export default function RegisterInput() {
         />
       </label>
 
-      <button
-        type="button"
-        data-testid="common_register__button-register"
+      <Button
+        dataTestid="common_register__button-register"
         disabled={ isNotLoginValid() }
       >
         Cadastrar
-      </button>
+      </Button>
     </div>
   );
 }

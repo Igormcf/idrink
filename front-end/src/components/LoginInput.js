@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import Button from './Button';
 
 export default function LoginInput() {
   const [userEmail, setUserEmail] = useState('');
@@ -16,8 +17,10 @@ export default function LoginInput() {
 
   const isNotLoginValid = () => !(validateEmail(userEmail) && userPassword.length >= SIX);
 
-  const buttonRegister = () => {
-    history.push('/register');
+  const buttonLogin = () => {
+    console.log(userEmail);
+    console.log(userPassword);
+    history.push('/products');
   };
 
   return (
@@ -44,21 +47,17 @@ export default function LoginInput() {
         />
       </label>
 
-      <button
-        type="button"
-        data-testid="common_login__button-login"
+      <Button
+        dataTestid="common_login__button-login"
         disabled={ isNotLoginValid() }
+        onClick={ buttonLogin }
       >
-        Login
-      </button>
+        LOGIN
+      </Button>
 
-      <button
-        type="button"
-        data-testid="common_login__button-register"
-        onClick={ buttonRegister }
-      >
-        Ainda não tenho conta
-      </button>
+      {/* <button type='button' onClick={buttonLogin}>
+        login
+      </button> */}
 
       {
         isVisibleMessage && (
