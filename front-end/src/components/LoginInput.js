@@ -5,10 +5,11 @@ import Button from './Button';
 export default function LoginInput() {
   const [userEmail, setUserEmail] = useState('');
   const [userPassword, setUserPassword] = useState('');
-  const [isVisibleMessage] = useState(false);
+  const [isVisibleMessage, setIsVisibleMessage] = useState(false);
   const history = useHistory();
 
   const SIX = 6;
+  const status200 = 200;
 
   const validateEmail = (email) => {
     const re = /\S+@\S+\.\S+/;
@@ -17,10 +18,26 @@ export default function LoginInput() {
 
   const isNotLoginValid = () => !(validateEmail(userEmail) && userPassword.length >= SIX);
 
-  const buttonLogin = () => {
-    console.log(userEmail);
-    console.log(userPassword);
-    history.push('/products');
+  const buttonLogin = async () => {
+    // console.log(userEmail);
+    // console.log(userPassword);
+    const requestOptions = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: userEmail, password: userPassword }),
+    };
+    const response = await fetch('https://localhost:3001/login', requestOptions);
+    const { status } = response;
+    const data = await response.json();
+    if (status === status200) {
+      localStorage.setItem(
+        'deliveapp_token',
+        JSON.stringify({ email: userEmail, token: data.token }),
+      );
+      history.push('/products');
+    } else {
+      setIsVisibleMessage(true);
+    }
   };
 
   return (
