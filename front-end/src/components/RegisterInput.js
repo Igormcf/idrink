@@ -27,14 +27,15 @@ export default function RegisterInput() {
   async function buttonRegister() {
     const requestOptions = {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+	  mode: 'cors',
+      headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin':'*' },
       body: JSON.stringify({
         name: userName,
         email: userEmail,
         password: userPassword,
       }),
     };
-    const response = await fetch('https://localhost:3001/register', requestOptions);
+    const response = await fetch('http://localhost:3001/register', requestOptions);
     const { status } = response;
     const data = await response.json();
     if (status === status201) {
@@ -87,6 +88,7 @@ export default function RegisterInput() {
         dataTestid="common_register__button-register"
         disabled={ isNotLoginValid() }
         onClick={ buttonRegister() }
+		disabled={ false }
       >
         Cadastrar
       </Button>
