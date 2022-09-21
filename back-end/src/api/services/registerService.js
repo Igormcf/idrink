@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken');
-const Joi = require('joi');
 const md5 = require('md5');
 const { User } = require('../../database/models');
+
 const { JWT_SECRET } = process.env;
 
 const register = async ({ name, email, password, role }) => {
