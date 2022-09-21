@@ -1,13 +1,17 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import Button from './Button';
 
 export default function RegisterInput() {
   const [userName, setUserName] = useState('');
   const [userEmail, setUserEmail] = useState('');
   const [userPassword, setUserPassword] = useState('');
+  const [isVisibleMessage, setIsVisibleMessage] = useState(false);
+  const history = useHistory();
 
   const SIX = 6;
   const TWELVE = 12;
+  const status201 = 201;
 
   const validateEmail = (email) => {
     const re = /\S+@\S+\.\S+/;
@@ -19,6 +23,30 @@ export default function RegisterInput() {
     && validateEmail(userEmail)
     && userPassword.length >= SIX
   );
+
+  async function buttonRegister() {
+    const requestOptions = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name: userName,
+        email: userEmail,
+        password: userPassword,
+      }),
+    };
+    const response = await fetch('https://localhost:3001/register', requestOptions);
+    const { status } = response;
+    const data = await response.json();
+    if (status === status201) {
+      localStorage.setItem(
+        'deliveapp_token',
+        JSON.stringify({ email: userEmail, token: data.token }),
+      );
+      history.push('/products');
+    } else {
+      setIsVisibleMessage(true);
+    }
+  }
 
   return (
     <div>
@@ -58,9 +86,17 @@ export default function RegisterInput() {
       <Button
         dataTestid="common_register__button-register"
         disabled={ isNotLoginValid() }
+        onClick={ buttonRegister() }
       >
         Cadastrar
       </Button>
+      {
+        isVisibleMessage && (
+          <p data-testid="common_register__element-invalid_register">
+            Um ou mais campos inválidos
+          </p>
+        )
+      }
     </div>
   );
 }
