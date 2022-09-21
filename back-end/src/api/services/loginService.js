@@ -13,7 +13,7 @@ const login = async ({ email, password }) => {
     expiresIn: '7d',
     algorithm: 'HS256',
   };
-
+  console.log(findUser);
   if (findUser === null) {
     return { statusCode: 404, result: { message: 'User not found!' } };
   }
