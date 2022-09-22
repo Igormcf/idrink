@@ -12,6 +12,7 @@ const login = async ({ email, password }) => {
   if (findUser === null) return { statusCode: 404, result: { message: 'User not found!' } };
 
   const descriptPassword = md5(password);
+  
   if (descriptPassword !== findUser.password) {
     return { statusCode: 404, result: { message: 'Incorrect email or password' } };
   }
