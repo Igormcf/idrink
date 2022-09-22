@@ -27,8 +27,8 @@ export default function RegisterInput() {
   async function buttonRegister() {
     const requestOptions = {
       method: 'POST',
-	  mode: 'cors',
-      headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin':'*' },
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         name: userName,
         email: userEmail,
@@ -88,7 +88,6 @@ export default function RegisterInput() {
         dataTestid="common_register__button-register"
         disabled={ isNotLoginValid() }
         onClick={ buttonRegister() }
-		disabled={ false }
       >
         Cadastrar
       </Button>

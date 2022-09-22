@@ -23,8 +23,8 @@ export default function LoginInput() {
     // console.log(userPassword);
     const requestOptions = {
       method: 'POST',
-	  mode: 'cors',
-      headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email: userEmail, password: userPassword }),
     };
     const response = await fetch('http://localhost:3001/login', requestOptions);
@@ -69,7 +69,6 @@ export default function LoginInput() {
         dataTestid="common_login__button-login"
         disabled={ isNotLoginValid() }
         onClick={ buttonLogin }
-		disabled={ false }
       >
         LOGIN
       </Button>
@@ -85,7 +84,7 @@ export default function LoginInput() {
           </p>
         )
       }
-	  <p>TESTANDO</p>
+      <p>TESTANDO</p>
     </form>
   );
 }
