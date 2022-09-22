@@ -12,6 +12,7 @@ app.use(express.json());
 
 app.use('/login', routes.loginRouter);
 app.use('/register', routes.registerRouter);
+app.use('/products', routes.productsRouter);
 
 app.get('/coffee', (_req, res) => res.status(418).end());
 
