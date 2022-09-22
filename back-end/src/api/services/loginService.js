@@ -17,6 +17,7 @@ const login = async ({ email, password }) => {
   }
 
   const payload = { email, id: findUser.id };
+  
   const token = jwt.sign(payload, JWT_SECRET, config);
   return { statusCode: 200, result: { token } };
 };
