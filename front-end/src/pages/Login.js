@@ -1,11 +1,8 @@
 import LoginInput from '../components/LoginInput';
 
 function Login() {
-
   return (
-    <>
-      <LoginInput />
-    </>
+    <LoginInput />
   );
 }
 

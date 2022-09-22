@@ -19,12 +19,12 @@ export default function RegisterInput() {
   };
 
   const isNotLoginValid = () => !(
-    userName.length < TWELVE
+    userName.length >= TWELVE
     && validateEmail(userEmail)
     && userPassword.length >= SIX
   );
 
-  async function buttonRegister() {
+  const buttonRegister = async () => {
     const requestOptions = {
       method: 'POST',
       mode: 'cors',
@@ -47,7 +47,7 @@ export default function RegisterInput() {
     } else {
       setIsVisibleMessage(true);
     }
-  }
+  };
 
   return (
     <div>
@@ -87,7 +87,7 @@ export default function RegisterInput() {
       <Button
         dataTestid="common_register__button-register"
         disabled={ isNotLoginValid() }
-        onClick={ buttonRegister() }
+        onClick={ buttonRegister }
       >
         Cadastrar
       </Button>
