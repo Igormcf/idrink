@@ -19,26 +19,33 @@ export default function LoginInput() {
   const isNotLoginValid = () => !(validateEmail(userEmail) && userPassword.length >= SIX);
 
   const buttonLogin = async () => {
-    // console.log(userEmail);
-    // console.log(userPassword);
+    try {
     const requestOptions = {
       method: 'POST',
-      mode: 'no-cors',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email: userEmail, password: userPassword }),
+      mode: 'cors',
+      headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
+      body: JSON.stringify({
+        email: userEmail,
+        password: userPassword
+      }),
     };
     const response = await fetch('http://localhost:3001/login', requestOptions);
-    const { status } = response;
     const data = await response.json();
+    const { status } = response;
     if (status === status200) {
-      localStorage.setItem(
-        'deliveapp_token',
-        JSON.stringify({ email: userEmail, token: data.token }),
-      );
+      // localStorage.setItem(
+      //   'deliveapp_token',
+      //   JSON.stringify({ email: userEmail, token: data.token }),
+      // );
       history.push('/products');
+      console.log(data);
     } else {
-      setIsVisibleMessage(true);
+      setIsVisibleMessage(true)
     }
+  } catch (err) {
+    console.log('error ', err.message);
+    console.log('error ', err);
+  }
   };
 
   return (
@@ -84,7 +91,6 @@ export default function LoginInput() {
           </p>
         )
       }
-      <p>TESTANDO</p>
     </form>
   );
 }
