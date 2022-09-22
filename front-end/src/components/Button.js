@@ -17,8 +17,12 @@ function Button({ children, dataTestid, disabled, onClick }) {
 Button.propTypes = {
   children: PropTypes.string.isRequired,
   dataTestid: PropTypes.string.isRequired,
-  disabled: PropTypes.string.isRequired,
-  onClick: PropTypes.string.isRequired,
+  disabled: PropTypes.bool,
+  onClick: PropTypes.func.isRequired,
+};
+
+Button.defaultProps = {
+  disabled: false,
 };
 
 export default Button;

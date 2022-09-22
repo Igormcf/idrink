@@ -23,10 +23,11 @@ export default function LoginInput() {
     // console.log(userPassword);
     const requestOptions = {
       method: 'POST',
+      mode: 'no-cors',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email: userEmail, password: userPassword }),
     };
-    const response = await fetch('https://localhost:3001/login', requestOptions);
+    const response = await fetch('http://localhost:3001/login', requestOptions);
     const { status } = response;
     const data = await response.json();
     if (status === status200) {
@@ -83,6 +84,7 @@ export default function LoginInput() {
           </p>
         )
       }
+      <p>TESTANDO</p>
     </form>
   );
 }

@@ -27,6 +27,7 @@ export default function RegisterInput() {
   async function buttonRegister() {
     const requestOptions = {
       method: 'POST',
+      mode: 'no-cors',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         name: userName,
@@ -34,7 +35,7 @@ export default function RegisterInput() {
         password: userPassword,
       }),
     };
-    const response = await fetch('https://localhost:3001/register', requestOptions);
+    const response = await fetch('http://localhost:3001/register', requestOptions);
     const { status } = response;
     const data = await response.json();
     if (status === status201) {
