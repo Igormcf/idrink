@@ -19,16 +19,16 @@ export default function RegisterInput() {
   };
 
   const isNotLoginValid = () => !(
-    userName.length < TWELVE
+    userName.length >= TWELVE
     && validateEmail(userEmail)
     && userPassword.length >= SIX
   );
 
-  async function buttonRegister() {
+  const buttonRegister = async () => {
     const requestOptions = {
       method: 'POST',
-      mode: 'no-cors',
-      headers: { 'Content-Type': 'application/json' },
+      mode: 'cors',
+      headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
       body: JSON.stringify({
         name: userName,
         email: userEmail,
@@ -41,13 +41,13 @@ export default function RegisterInput() {
     if (status === status201) {
       localStorage.setItem(
         'deliveapp_token',
-        JSON.stringify({ email: userEmail, token: data.token }),
+        JSON.stringify({ token: data.token }),
       );
       history.push('/products');
     } else {
       setIsVisibleMessage(true);
     }
-  }
+  };
 
   return (
     <div>
@@ -87,7 +87,7 @@ export default function RegisterInput() {
       <Button
         dataTestid="common_register__button-register"
         disabled={ isNotLoginValid() }
-        onClick={ buttonRegister() }
+        onClick={ buttonRegister }
       >
         Cadastrar
       </Button>

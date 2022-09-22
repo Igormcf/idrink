@@ -20,32 +20,39 @@ export default function LoginInput() {
 
   const buttonLogin = async () => {
     try {
-    const requestOptions = {
-      method: 'POST',
-      mode: 'cors',
-      headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
-      body: JSON.stringify({
-        email: userEmail,
-        password: userPassword
-      }),
-    };
-    const response = await fetch('http://localhost:3001/login', requestOptions);
-    const data = await response.json();
-    const { status } = response;
-    if (status === status200) {
-      // localStorage.setItem(
-      //   'deliveapp_token',
-      //   JSON.stringify({ email: userEmail, token: data.token }),
-      // );
-      history.push('/products');
-      console.log(data);
-    } else {
-      setIsVisibleMessage(true)
+      const requestOptions = {
+        method: 'POST',
+        mode: 'cors',
+        headers: {
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*',
+        },
+        body: JSON.stringify({
+          email: userEmail,
+          password: userPassword,
+        }),
+      };
+      const response = await fetch('http://localhost:3001/login', requestOptions);
+      const data = await response.json();
+      const { status } = response;
+      if (status === status200) {
+        localStorage.setItem(
+          'deliveapp_token',
+          JSON.stringify({ token: data.token }),
+        );
+        history.push('/products');
+        console.log(data);
+      } else {
+        setIsVisibleMessage(true);
+      }
+    } catch (err) {
+      console.log('error ', err.message);
+      console.log('error ', err);
     }
-  } catch (err) {
-    console.log('error ', err.message);
-    console.log('error ', err);
-  }
+  };
+
+  const buttonRegister = () => {
+    history.push('/register');
   };
 
   return (
@@ -80,9 +87,12 @@ export default function LoginInput() {
         LOGIN
       </Button>
 
-      {/* <button type='button' onClick={buttonLogin}>
-        login
-      </button> */}
+      <Button
+        dataTestid="common_login__button-register"
+        onClick={ buttonRegister }
+      >
+        Ainda não tenho conta
+      </Button>
 
       {
         isVisibleMessage && (
