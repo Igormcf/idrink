@@ -6,29 +6,35 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       primaryKey: true,
     },
-    user_id: {
+    userId: {
+      field: 'user_id',
       allowNull: false,
       type: DataTypes.INTEGER,
       foreignKey: true
     },
-    seller_id: {
+    sellerId: {
+      field: 'seller_id',
       allowNull: false,
       type: DataTypes.INTEGER,
       foreignKey: true
     },
-    total_price: {
+    totalPrice: {
+      field: 'total_price',
       type: DataTypes.DECIMAL,
       allowNull: false,
     },
-    delivery_address:{
+    deliveryAddress:{
+      field: 'delivery_address',
       type: DataTypes.STRING,
       allowNull: false,
     },
-    delivery_number: {
+    deliveryNumber: {
+      field: 'delivery_number',
       type: DataTypes.STRING,
       allowNull: false,
     },
-    sale_date: {
+    saleDate: {
+      field: 'sale_date',
       type: DataTypes.DATE,
       allowNull: false,
     },
@@ -44,9 +50,9 @@ module.exports = (sequelize, DataTypes) => {
 
  SalesTable.associate = (models) => {
     SalesTable.belongsTo(models.User,
-      { foreignKey: 'user_id', as: 'usersUserId' });
+      { foreignKey: 'userId', as: 'usersUserId' });
     SalesTable.belongsTo(models.User,
-      { foreignKey: 'seller_id', as: 'usersSellerId' });
+      { foreignKey: 'sellerId', as: 'usersSellerId' });
   };
   
   return SalesTable;

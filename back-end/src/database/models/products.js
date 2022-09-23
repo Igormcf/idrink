@@ -12,9 +12,10 @@ module.exports = (sequelize, DataTypes) => {
     },
     price: {
       allowNull: false,
-      type: DataTypes.FLOAT,
+      type: DataTypes.DECIMAL,
     },
-    url_image: {
+    urlImage: {
+      field: 'url_image',
       allowNull: false,
       type: DataTypes.STRING,
     }
