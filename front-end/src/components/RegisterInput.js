@@ -7,6 +7,7 @@ export default function RegisterInput() {
   const [userEmail, setUserEmail] = useState('');
   const [userPassword, setUserPassword] = useState('');
   const [isVisibleMessage, setIsVisibleMessage] = useState(false);
+  const [isVisibleMessageEmail, setIsVisibleMessageEmail] = useState(false);
   const history = useHistory();
 
   const SIX = 6;
@@ -42,9 +43,11 @@ export default function RegisterInput() {
     if (status === status201) {
       localStorage.setItem(
         'deliveapp_token',
-        JSON.stringify({ token: data.token }),
+        JSON.stringify(data),
       );
       history.push('/customer/products');
+    } else if (status === 409) {
+      setIsVisibleMessageEmail(true)
     } else {
       setIsVisibleMessage(true);
     }
@@ -96,6 +99,13 @@ export default function RegisterInput() {
         isVisibleMessage && (
           <p data-testid="common_register__element-invalid_register">
             Um ou mais campos inválidos
+          </p>
+        )
+      }
+      {
+        isVisibleMessageEmail && (
+          <p data-testid="common_register__element-invalid_register">
+            Esse email já está cadastrado
           </p>
         )
       }

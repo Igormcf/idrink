@@ -38,15 +38,15 @@ export default function LoginInput() {
       if (status === status200) {
         localStorage.setItem(
           'deliveapp_token',
-          JSON.stringify({ token: data.token }),
+          JSON.stringify(data),
         );
         history.push('/customer/products');
-        console.log(data);
+        // console.log(data);
       } else {
         setIsVisibleMessage(true);
       }
     } catch (err) {
-      console.log('error ', err.message);
+      // console.log('error ', err.message);
       console.log('error ', err);
     }
   };
