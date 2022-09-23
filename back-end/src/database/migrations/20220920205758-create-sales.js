@@ -26,7 +26,7 @@ module.exports = {
       },
       total_price: {
         allowNull: false,
-        type: Sequelize.DECIMAL,
+        type: Sequelize.DECIMAL(10,2),
       },
       delivery_address: {
         allowNull: false,
@@ -40,6 +40,10 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE,
       },
+      status: {
+        allowNull: false,
+        type: Sequelize.STRING,
+      }
     });
   },
   async down(queryInterface, Sequelize) {
