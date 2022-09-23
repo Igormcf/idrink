@@ -16,7 +16,7 @@ const register = async ({ name, email, password, role }) => {
   const payload = { email, id };
   const token = jwt.sign(payload, JWT_SECRET, config);
 
-  return { statusCode: 201, result: { token } };
+  return { statusCode: 201, result: { name, email, role, token } };
 };
 
 module.exports = {

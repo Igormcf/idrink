@@ -17,9 +17,10 @@ const login = async ({ email, password }) => {
     return { statusCode: 404, result: { message: 'Incorrect email or password' } };
   }
 
+  const { name, email: userEmail, role } = findUser;
   const payload = { email, id: findUser.id };
   const token = jwt.sign(payload, JWT_SECRET, config);
-  return { statusCode: 200, result: { token } };
+  return { statusCode: 200, result: { name, email: userEmail, role, token } };
 };
 
 module.exports = {
