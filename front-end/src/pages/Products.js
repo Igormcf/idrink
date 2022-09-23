@@ -1,8 +1,9 @@
 import React from 'react';
+import CardProduct from '../components/CardProduct';
 
 function Product() {
   return (
-    <div>Product</div>
+    <div><CardProduct /></div>
   );
 }
 
