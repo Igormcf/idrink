@@ -33,6 +33,7 @@ export default function RegisterInput() {
         name: userName,
         email: userEmail,
         password: userPassword,
+        role: 'user',
       }),
     };
     const response = await fetch('http://localhost:3001/register', requestOptions);
@@ -43,7 +44,7 @@ export default function RegisterInput() {
         'deliveapp_token',
         JSON.stringify({ token: data.token }),
       );
-      history.push('/products');
+      history.push('/customer/products');
     } else {
       setIsVisibleMessage(true);
     }

@@ -40,7 +40,7 @@ export default function LoginInput() {
           'deliveapp_token',
           JSON.stringify({ token: data.token }),
         );
-        history.push('/products');
+        history.push('/customer/products');
         console.log(data);
       } else {
         setIsVisibleMessage(true);
