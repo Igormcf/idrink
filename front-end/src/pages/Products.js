@@ -1,8 +1,9 @@
 import React from 'react';
+import Products from '../components/Products';
 
 function Product() {
   return (
-    <div>Product</div>
+    <div><Products /></div>
   );
 }
 
