@@ -34,6 +34,11 @@ function Products() {
     setProductsCount(productsCount + 1);
   }
 
+  const quantityInput = ({ target }, index) => {
+    productsList[index].quantity = Number(target.value);
+    setProductsCount(productsCount + Number(target.value));
+  };
+
   useEffect(() => {
     initialProducts();
   }, []);
@@ -44,7 +49,7 @@ function Products() {
         productsList.map(({ id, name, price, url_image: urlImage, quantity }, index) => (
           <div key={ `product_${index}` }>
             <p data-testid={ `customer_products__element-card-price-${id}` }>
-              { `R$ ${price}` }
+              { price.replace(/\./, ',') }
             </p>
             <img
               width="150px"
@@ -59,11 +64,14 @@ function Products() {
             >
               -
             </Button>
-            <span
-              data-testid="customer_products__input-card-quantity-{id}"
-            >
-              {quantity}
-            </span>
+            <input
+              type="number"
+              data-testid={ `customer_products__input-card-quantity-${id}` }
+              min={ 0 }
+              value={ quantity }
+              onChange={ (e) => quantityInput(e, index) }
+            />
+
             <Button
               dataTestid={ `customer_products__button-card-add-item-${id}` }
               onClick={ () => addItem(index) }
