@@ -6,7 +6,7 @@ function Products() {
   const [productsCount, setProductsCount] = useState(0);
   const initialProducts = async () => {
     const url = 'http://localhost:3001/products';
-    const data = JSON.parse(localStorage.getItem('deliveapp_token'));
+    const data = JSON.parse(localStorage.getItem('user'));
     const fetchOptions = {
       method: 'GET',
       headers: {

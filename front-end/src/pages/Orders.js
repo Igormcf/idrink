@@ -5,6 +5,7 @@ function Requests() {
   return (
     <div>
       <NavBar />
+      Orders
     </div>
   );
 }

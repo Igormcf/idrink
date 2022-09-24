@@ -37,7 +37,7 @@ export default function LoginInput() {
       const { status } = response;
       if (status === status200) {
         localStorage.setItem(
-          'deliveapp_token',
+          'user',
           JSON.stringify(data),
         );
         history.push('/customer/products');

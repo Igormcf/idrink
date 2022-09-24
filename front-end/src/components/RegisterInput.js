@@ -34,7 +34,7 @@ export default function RegisterInput() {
         name: userName,
         email: userEmail,
         password: userPassword,
-        role: 'user',
+        role: 'customer',
       }),
     };
     const response = await fetch('http://localhost:3001/register', requestOptions);
@@ -42,7 +42,7 @@ export default function RegisterInput() {
     const data = await response.json();
     if (status === status201) {
       localStorage.setItem(
-        'deliveapp_token',
+        'user',
         JSON.stringify(data),
       );
       history.push('/customer/products');
