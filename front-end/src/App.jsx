@@ -3,6 +3,7 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 import Login from './pages/Login';
 import Product from './pages/Products';
 import Register from './pages/Register';
+import Orders from './pages/Orders';
 
 // import './App.css';
 
@@ -15,6 +16,7 @@ function App() {
       <Route exact path="/login" component={ Login } />
       <Route exact path="/register" component={ Register } />
       <Route exact path="/customer/products" component={ Product } />
+      <Route exact path="/customer/orders" component={ Orders } />
     </Switch>
   );
 }

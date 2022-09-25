@@ -1,14 +1,13 @@
 import React from 'react';
-import CardProduct from '../components/CardProduct';
 import NavBar from '../components/NavBar';
 
-function Product() {
+function Requests() {
   return (
     <div>
       <NavBar />
-      <CardProduct />
+      Orders
     </div>
   );
 }
 
-export default Product;
+export default Requests;

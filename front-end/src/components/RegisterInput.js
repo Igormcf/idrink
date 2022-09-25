@@ -7,6 +7,7 @@ export default function RegisterInput() {
   const [userEmail, setUserEmail] = useState('');
   const [userPassword, setUserPassword] = useState('');
   const [isVisibleMessage, setIsVisibleMessage] = useState(false);
+  // const [isVisibleMessageEmail, setIsVisibleMessageEmail] = useState(false);
   const history = useHistory();
 
   const SIX = 6;
@@ -33,7 +34,7 @@ export default function RegisterInput() {
         name: userName,
         email: userEmail,
         password: userPassword,
-        role: 'user',
+        role: 'customer',
       }),
     };
     const response = await fetch('http://localhost:3001/register', requestOptions);
@@ -41,10 +42,12 @@ export default function RegisterInput() {
     const data = await response.json();
     if (status === status201) {
       localStorage.setItem(
-        'deliveapp_token',
-        JSON.stringify({ token: data.token }),
+        'user',
+        JSON.stringify(data),
       );
       history.push('/customer/products');
+    // } else if (status === 409) {
+    //   setIsVisibleMessageEmail(true);
     } else {
       setIsVisibleMessage(true);
     }
@@ -99,6 +102,13 @@ export default function RegisterInput() {
           </p>
         )
       }
+      {/* {
+        isVisibleMessageEmail && (
+          <p data-testid="common_register__element-invalid_register">
+            Esse email já está cadastrado
+          </p>
+        )
+      } */}
     </div>
   );
 }
