@@ -36,7 +36,6 @@ module.exports = (sequelize, DataTypes) => {
     saleDate: {
       field: 'sale_date',
       type: DataTypes.DATE,
-      defaultValue: DataTypes.NOW,
       allowNull: false,
     },
     status: {
@@ -46,7 +45,7 @@ module.exports = (sequelize, DataTypes) => {
   },
   {
     timestamps: false,
-    tableName: 'Sales',
+    tableName: 'sales',
   });
 
  SalesTable.associate = (models) => {
