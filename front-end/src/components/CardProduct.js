@@ -82,7 +82,7 @@ function Products() {
       <div>
         {
           productsList.map(
-            ({ id, name, price, url_image: urlImage, quantity }, index) => (
+            ({ id, name, price, urlImage, quantity }, index) => (
               <div key={ `product_${index}` }>
                 <p data-testid={ `customer_products__element-card-price-${id}` }>
                   { price.replace(/\./, ',') }

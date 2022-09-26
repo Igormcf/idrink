@@ -15,7 +15,7 @@ function Button({ children, dataTestid, disabled, onClick }) {
 }
 
 Button.propTypes = {
-  children: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
   dataTestid: PropTypes.string.isRequired,
   disabled: PropTypes.bool,
   onClick: PropTypes.func.isRequired,

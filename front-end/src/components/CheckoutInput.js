@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 // import { useHistory } from 'react-router-dom';
 import Button from './Button';
+import CheckoutAddress from './CheckoutAddress';
 
 export default function CheckoutInput() {
 //  const history = useHistory();
@@ -28,10 +29,20 @@ export default function CheckoutInput() {
       .replace(/\./, ',');
   }
 
+  const arrayOfProducts = () => (
+    userData.cart.map(({ quantity, id }) => (
+      {
+        quantity,
+        productId: id,
+      }
+    ))
+  );
+
   if (userData.length === 0) return '';
 
   return (
     <>
+      <h1>Finalizar Pedido</h1>
       <table>
         <thead>
           <tr>
@@ -103,6 +114,11 @@ export default function CheckoutInput() {
           { totalPrice(userData.cart) }
         </span>
       </p>
+
+      <CheckoutAddress
+        totalPrice={ totalPrice(userData.cart) }
+        arrayOfProducts={ arrayOfProducts() }
+      />
     </>
   );
 }
