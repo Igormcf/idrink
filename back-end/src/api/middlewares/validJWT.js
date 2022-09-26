@@ -1,6 +1,7 @@
 const jwt = require('jsonwebtoken');
+const fs = require('fs').promises;
 
-const { JWT_SECRET } = process.env;
+const JWT_SECRET = async () => fs.readFile('./jwt.evaluation.key', 'utf-8');
 
 module.exports = async (req, res, next) => {
   const token = req.headers.authorization;
@@ -10,7 +11,9 @@ module.exports = async (req, res, next) => {
   }
 
   try {
-    const decodeToken = jwt.verify(token, JWT_SECRET);
+    const secret = await JWT_SECRET();
+
+    const decodeToken = jwt.verify(token, secret);
     
     req.user = decodeToken;
 
