@@ -41,12 +41,10 @@ export default function LoginInput() {
           JSON.stringify(data),
         );
         history.push('/customer/products');
-        // console.log(data);
       } else {
         setIsVisibleMessage(true);
       }
     } catch (err) {
-      // console.log('error ', err.message);
       console.log('error ', err);
     }
   };
