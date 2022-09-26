@@ -7,7 +7,6 @@ const createSale = async (body) => {
     totalPrice: body.totalPrice,
     deliveryAddress: body.deliveryAddress,
     deliveryNumber: body.deliveryNumber,
-    saleDate: body.saleDate,
     status: body.status,
   });
 

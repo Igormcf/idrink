@@ -5,7 +5,7 @@ const createUserDto = Joi.object({
   totalPrice: Joi.number().required(),
   deliveryAddress: Joi.string().required(),
   deliveryNumber: Joi.string().required(),
-  saleDate: Joi.date().required(),
+  saleDate: Joi.date(),
   status: Joi.string().required(),
   products: Joi.array().items({
     quantity: Joi.number().required(),
