@@ -15,6 +15,17 @@ const getAllSalesBySeller = async ({ id }) => {
   return { statusCode: 200, result: response };
 };
 
+const updateSalesBySeller = async ({ id, newStatus }) => {
+  const findSales = await Sale.findByPk(id);
+
+  if (!findSales) return { statusCode: 404, result: 'sale not found' };
+
+  await Sale.update({ status: newStatus }, { where: { id } });
+
+  return { statusCode: 201, result: 'Updated sale!' };
+};
+
 module.exports = {
   getAllSalesBySeller,
+  updateSalesBySeller,
 };
