@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import Button from './Button';
 
@@ -52,6 +52,13 @@ export default function LoginInput() {
   const buttonRegister = () => {
     history.push('/register');
   };
+
+  useEffect(() => {
+    const userData = localStorage.getItem('user');
+    if (userData) {
+      history.push('/customer/products');
+    }
+  }, [history]);
 
   return (
     <form>

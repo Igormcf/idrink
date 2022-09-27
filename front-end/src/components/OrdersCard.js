@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-//import { useHistory } from 'react-router-dom';
-import Button from './Button';
+// import { useHistory } from 'react-router-dom';
+// import Button from './Button';
 
 function OrdersCard() {
   const status200 = 200;
-//  const history = useHistory();
+  //  const history = useHistory();
   const [ordersList, setOrdersList] = useState([]);
 
   function padTo2Digits(num) {
@@ -32,11 +32,11 @@ function OrdersCard() {
       const response = await fetch(url, fetchOptions);
       if (response.status !== status200) {
         localStorage.removeItem('user');
-        history.push('/login');
+        // history.push('/login');
       } else {
         const orders = await response.json();
-//        orders = orders.map(({id, status, saleDate, totalPrice}) => ({
-//        }));
+        //        orders = orders.map(({id, status, saleDate, totalPrice}) => ({
+        //        }));
         setOrdersList(orders);
       }
     };
@@ -47,10 +47,16 @@ function OrdersCard() {
     <div>
       {
         ordersList.map(
-          ({id, status, saleDate, totalPrice}, index) => (
+          ({ id, status, saleDate, totalPrice }, index) => (
             <div key={ `order_${index}` }>
               <p>
-                Pedido <span data-testid={ `customer_orders__element-order-id-${id}` }>{ id }</span>
+                Pedido
+                {' '}
+                <span
+                  data-testid={ `customer_orders__element-order-id-${id}` }
+                >
+                  { id }
+                </span>
               </p>
               <p data-testid={ `customer_orders__element-delivery-status-${id}` }>
                 { status }
