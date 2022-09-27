@@ -5,6 +5,7 @@ import Product from './pages/Products';
 import Register from './pages/Register';
 import Orders from './pages/Orders';
 import Checkout from './pages/Checkout';
+import OrdersDetails from './pages/OrdersDetails';
 
 // import './App.css';
 
@@ -19,6 +20,7 @@ function App() {
       <Route exact path="/customer/products" component={ Product } />
       <Route exact path="/customer/checkout" component={ Checkout } />
       <Route exact path="/customer/orders" component={ Orders } />
+      <Route exact path="/customer/orders/:id" component={ OrdersDetails } />
     </Switch>
   );
 }
