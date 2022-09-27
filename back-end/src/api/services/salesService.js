@@ -47,7 +47,7 @@ const getSaleById = async (userId, saleId) => {
   if (!response) return { statusCode: 404, result: 'sale not found' };
 
   return { statusCode: 200, result: response };
-}
+};
 
 module.exports = {
   createSale,
