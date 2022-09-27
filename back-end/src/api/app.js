@@ -15,6 +15,7 @@ app.use('/register', routes.registerRouter);
 app.use('/products', routes.productsRouter);
 app.use('/checkout', routes.salesRouter);
 app.use('/user', routes.userRouter);
+app.use('/orders', routes.ordersRouter);
 
 app.get('/coffee', (_req, res) => res.status(418).end());
 
