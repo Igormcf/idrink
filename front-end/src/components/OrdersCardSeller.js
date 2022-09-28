@@ -35,7 +35,6 @@ function OrdersCardSeller() {
         history.push('/login');
       } else {
         const orders = await response.json();
-        console.log(orders);
         setOrdersList(orders);
       }
     };

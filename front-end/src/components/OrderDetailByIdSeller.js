@@ -3,11 +3,10 @@ import { useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Button from './Button';
 
-export default function OrderDetailById({ orderId }) {
+function OrderDetailByIdSeller({ orderId }) {
   const status200 = 200;
   const history = useHistory();
   const [orderData, setOrderData] = useState({});
-  const [seller, setSeller] = useState({});
   const [newStatus, setNewStatus] = useState('Pendente');
 
   function padTo2Digits(num) {
@@ -24,8 +23,7 @@ export default function OrderDetailById({ orderId }) {
 
   useEffect(() => {
     const initialOrder = async () => {
-      const url1 = `http://localhost:3001/checkout/${orderId}`;
-      const url2 = 'http://localhost:3001/user';
+      const url = `http://localhost:3001/orders/seller/${orderId}`;
       const data = JSON.parse(localStorage.getItem('user'));
       const fetchOptions = {
         method: 'GET',
@@ -33,21 +31,17 @@ export default function OrderDetailById({ orderId }) {
           Authorization: data.token,
         },
       };
-      const responseOrder = await fetch(url1, fetchOptions);
-      const responseUsers = await fetch(url2, fetchOptions);
-      if (responseOrder.status !== status200) {
+      const response = await fetch(url, fetchOptions);
+      if (response.status !== status200) {
         localStorage.removeItem('user');
         history.push('/login');
       } else {
-        const order = await responseOrder.json();
-        const users = await responseUsers.json();
-        const findSeller = users.find(({ id }) => id === order.sellerId);
+        const order = await response.json();
         order.products = order.products.map((product) => ({
           ...product,
           quantity: product.SaleProduct.quantity,
         }));
         setOrderData(order);
-        setSeller(findSeller);
       }
     };
     initialOrder();
@@ -80,34 +74,32 @@ export default function OrderDetailById({ orderId }) {
         Pedido
         {' '}
         <span
-          data-testid="customer_order_details__element-order-details-label-order-id"
+          data-testid="seller_order_details__element-order-details-label-order-id"
         >
           { orderData.id }
         </span>
       </p>
-      <p>
-        P. Vend:
-        {' '}
-        <span
-          data-testid="customer_order_details__element-order-details-label-seller-name"
-        >
-          { seller.name }
-        </span>
-      </p>
-      <p data-testid="customer_order_details__element-order-details-label-order-date">
+      <p data-testid="seller_order_details__element-order-details-label-order-date">
         { formatDate(new Date(orderData.saleDate)) }
       </p>
       <p
-        data-testid="customer_order_details__element-order-details-label-delivery-status"
+        data-testid="seller_order_details__element-order-details-label-delivery-status"
       >
         { orderData.status }
       </p>
       <Button
-        dataTestid="customer_order_details__button-delivery-check"
-        onClick={ () => { fetchStatus('Entregue'); } }
-        disabled={ orderData.status !== 'Em Trânsito' }
+        dataTestid="seller_order_details__button-preparing-check"
+        onClick={ () => { fetchStatus('Preparando'); } }
+        disabled={ orderData.status !== 'Pendente' }
       >
-        MARCAR COMO ENTREGUE
+        Preparar pedido
+      </Button>
+      <Button
+        dataTestid="seller_order_details__button-dispatch-check"
+        onClick={ () => { fetchStatus('Em Trânsito'); } }
+        disabled={ orderData.status !== 'Preparando' }
+      >
+        Saiu para Entrega
       </Button>
       <table>
         <thead>
@@ -125,35 +117,35 @@ export default function OrderDetailById({ orderId }) {
               <tr key={ `cartIens_${index}` }>
                 <td
                   data-testid={
-                    `customer_order_details__element-order-table-item-number-${index}`
+                    `seller_order_details__element-order-table-item-number-${index}`
                   }
                 >
                   { index + 1 }
                 </td>
                 <td
                   data-testid={
-                    `customer_order_details__element-order-table-name-${index}`
+                    `seller_order_details__element-order-table-name-${index}`
                   }
                 >
                   { name }
                 </td>
                 <td
                   data-testid={
-                    `customer_order_details__element-order-table-quantity-${index}`
+                    `seller_order_details__element-order-table-quantity-${index}`
                   }
                 >
                   { quantity }
                 </td>
                 <td
                   data-testid={
-                    `customer_order_details__element-order-table-unit-price-${index}`
+                    `seller_order_details__element-order-table-unit-price-${index}`
                   }
                 >
                   { price.replace(/\./, ',') }
                 </td>
                 <td
                   data-testid={
-                    `customer_order_details__element-order-table-sub-total-${index}`
+                    `seller_order_details__element-order-table-sub-total-${index}`
                   }
                 >
                   { (quantity * price).toFixed(2).replace(/\./, ',') }
@@ -166,7 +158,7 @@ export default function OrderDetailById({ orderId }) {
       <p>
         Total: R$
         <span
-          data-testid="customer_order_details__element-order-total-price"
+          data-testid="seller_order_details__element-order-total-price"
         >
           { orderData.totalPrice.replace(/\./, ',') }
         </span>
@@ -175,6 +167,8 @@ export default function OrderDetailById({ orderId }) {
   );
 }
 
-OrderDetailById.propTypes = {
+OrderDetailByIdSeller.propTypes = {
   orderId: PropTypes.string.isRequired,
 };
+
+export default OrderDetailByIdSeller;
