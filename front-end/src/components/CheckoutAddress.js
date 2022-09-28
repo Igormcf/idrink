@@ -51,7 +51,6 @@ function CheckoutAddress({ totalPrice, arrayOfProducts }) {
             arrayOfProducts,
         }),
       };
-      // console.log(arrayOfProducts);
       const response = await fetch('http://localhost:3001/checkout', requestOptions);
       const { id } = await response.json();
       history.push(`/customer/orders/${id}`);
@@ -82,7 +81,6 @@ function CheckoutAddress({ totalPrice, arrayOfProducts }) {
           Endereço
           <input
             data-testid="customer_checkout__input-address"
-            // placeholder="Ex: your@email.com"
             type="text"
             id="address"
             onChange={ ({ target }) => setAddress(target.value) }
@@ -93,7 +91,6 @@ function CheckoutAddress({ totalPrice, arrayOfProducts }) {
           Número
           <input
             data-testid="customer_checkout__input-address-number"
-            // placeholder="Ex: your@email.com"
             type="number"
             id="number"
             onChange={ ({ target }) => setNumber(target.value) }

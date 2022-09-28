@@ -71,7 +71,7 @@ export default function OrderDetailById({ orderId }) {
       }),
     };
     await fetch(url, fetchOptions);
-    setNewStatus(newStatus);
+    setNewStatus(status);
   };
 
   return (
