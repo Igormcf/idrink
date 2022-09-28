@@ -65,7 +65,7 @@ function OrderDetailByIdSeller({ orderId }) {
       }),
     };
     await fetch(url, fetchOptions);
-    setNewStatus(newStatus);
+    setNewStatus(status);
   };
 
   return (
