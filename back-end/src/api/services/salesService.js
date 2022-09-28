@@ -26,7 +26,9 @@ const getAllSalesByUser = async ({ id }) => {
     {
       where: { userId: id },
       include: [
-        { model: Product, as: 'products', through: { attributes: [] } },
+        { model: Product,
+          as: 'products',
+          through: { attributes: { exclude: ['saleId', 'productId'] } } },
       ],
     },
   );
@@ -40,7 +42,11 @@ const getSaleById = async (userId, saleId) => {
   const response = await Sale.findOne(
     {
       where: { id: saleId, userId },
-      include: [{ model: Product, as: 'products', through: { attributes: [] } }],
+      include: [
+        { model: Product,
+          as: 'products',
+          through: { attributes: { exclude: ['saleId', 'productId'] } } },
+      ],
     },
   );
 
