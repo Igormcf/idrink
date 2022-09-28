@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from 'react';
-// import { useHistory } from 'react-router-dom';
 import Button from './Button';
 import CheckoutAddress from './CheckoutAddress';
 
 export default function CheckoutInput() {
-//  const history = useHistory();
   const [userData, setUserData] = useState([]);
 
   function initialData() {
