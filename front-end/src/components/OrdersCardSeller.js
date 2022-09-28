@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 // import Button from './Button';
 
-function OrdersCard() {
+function OrdersCardSeller() {
   const status200 = 200;
   const history = useHistory();
   const [ordersList, setOrdersList] = useState([]);
@@ -21,7 +21,7 @@ function OrdersCard() {
 
   useEffect(() => {
     const initialOrders = async () => {
-      const url = 'http://localhost:3001/checkout';
+      const url = 'http://localhost:3001/orders/seller';
       const data = JSON.parse(localStorage.getItem('user'));
       const fetchOptions = {
         method: 'GET',
@@ -35,6 +35,7 @@ function OrdersCard() {
         history.push('/login');
       } else {
         const orders = await response.json();
+        console.log(orders);
         setOrdersList(orders);
       }
     };
@@ -47,26 +48,26 @@ function OrdersCard() {
         ordersList.map(
           ({ id, status, saleDate, totalPrice }, index) => (
             <div key={ `order_${index}` }>
-              <Link to={ `/customer/orders/${id}` } style={ { textDecoration: 'none' } }>
+              <Link to={ `/seller/orders/${id}` } style={ { textDecoration: 'none' } }>
                 <p>
                   Pedido
                   {' '}
                   <span
-                    data-testid={ `customer_orders__element-order-id-${id}` }
+                    data-testid={ `seller_orders__element-order-id-${id}` }
                   >
                     { id }
                   </span>
                 </p>
-                <p data-testid={ `customer_orders__element-delivery-status-${id}` }>
+                <p data-testid={ `seller_orders__element-delivery-status-${id}` }>
                   { status }
                 </p>
-                <p data-testid={ `customer_orders__element-order-date-${id}` }>
+                <p data-testid={ `seller_orders__element-order-date-${id}` }>
                   { formatDate(new Date(saleDate)) }
                 </p>
                 <p>
                   { 'R$ ' }
                   <span
-                    data-testid={ `customer_orders__element-card-price-${id}` }
+                    data-testid={ `seller_orders__element-card-price-${id}` }
                   >
                     { totalPrice.replace(/\./, ',') }
                   </span>
@@ -80,4 +81,4 @@ function OrdersCard() {
   );
 }
 
-export default OrdersCard;
+export default OrdersCardSeller;
