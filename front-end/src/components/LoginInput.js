@@ -60,7 +60,6 @@ export default function LoginInput() {
   useEffect(() => {
     const userData = localStorage.getItem('user');
     const data = JSON.parse(userData);
-    console.log(data);
     if (data) {
       if (data.role === 'seller') {
         history.push('/seller/orders');
