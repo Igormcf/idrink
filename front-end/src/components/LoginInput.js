@@ -40,7 +40,11 @@ export default function LoginInput() {
           'user',
           JSON.stringify(data),
         );
-        history.push('/customer/products');
+        if (data.role === 'seller') {
+          history.push('/seller/orders');
+        } else {
+          history.push('/customer/products');
+        }
       } else {
         setIsVisibleMessage(true);
       }
@@ -55,8 +59,14 @@ export default function LoginInput() {
 
   useEffect(() => {
     const userData = localStorage.getItem('user');
-    if (userData) {
-      history.push('/customer/products');
+    const data = JSON.parse(userData);
+    console.log(data);
+    if (data) {
+      if (data.role === 'seller') {
+        history.push('/seller/orders');
+      } else {
+        history.push('/customer/products');
+      }
     }
   }, [history]);
 

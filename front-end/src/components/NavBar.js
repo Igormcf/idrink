@@ -4,7 +4,7 @@ import Button from './Button';
 
 function NavBar() {
   const history = useHistory();
-  const userName = JSON.parse(localStorage.getItem('user'));
+  const user = JSON.parse(localStorage.getItem('user'));
 
   const toProducts = () => {
     history.push('/customer/products');
@@ -14,6 +14,10 @@ function NavBar() {
     history.push('/customer/orders');
   };
 
+  const toOrdersSeller = () => {
+    history.push('/seller/orders');
+  };
+
   const logout = () => {
     localStorage.removeItem('user');
     history.push('/login');
@@ -21,21 +25,33 @@ function NavBar() {
 
   return (
     <nav>
-      <Button
-        dataTestid="customer_products__element-navbar-link-products"
-        onClick={ toProducts }
-      >
-        Produtos
-      </Button>
-      <Button
-        dataTestid="customer_products__element-navbar-link-orders"
-        onClick={ toOrders }
-      >
-        Pedidos
-      </Button>
+      { user.role === 'seller' ? (
+        <Button
+          dataTestid="customer_products__element-navbar-link-orders"
+          onClick={ toOrdersSeller }
+        >
+          Pedidos
+        </Button>
+      ) : (
+        <>
+          <Button
+            dataTestid="customer_products__element-navbar-link-products"
+            onClick={ toProducts }
+          >
+            Produtos
+          </Button>
+
+          <Button
+            dataTestid="customer_products__element-navbar-link-orders"
+            onClick={ toOrders }
+          >
+            Pedidos
+          </Button>
+        </>
+      )}
 
       <h3 data-testid="customer_products__element-navbar-user-full-name">
-        {userName.name}
+        {user.name}
       </h3>
       <Button
         dataTestid="customer_products__element-navbar-link-logout"
