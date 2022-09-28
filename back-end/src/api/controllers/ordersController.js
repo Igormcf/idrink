@@ -1,7 +1,7 @@
 const ordersService = require('../services/ordersService');
 
 const getAllSalesBySeller = async (req, res) => {
-  const { id } = req.params;
+  const { id } = req.user;
 
   const { statusCode, result } = await ordersService.getAllSalesBySeller({ id });
 
