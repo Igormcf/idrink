@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 // import { useHistory } from 'react-router-dom';
 // import Button from './Button';
 
@@ -49,29 +50,31 @@ function OrdersCard() {
         ordersList.map(
           ({ id, status, saleDate, totalPrice }, index) => (
             <div key={ `order_${index}` }>
-              <p>
-                Pedido
-                {' '}
-                <span
-                  data-testid={ `customer_orders__element-order-id-${id}` }
-                >
-                  { id }
-                </span>
-              </p>
-              <p data-testid={ `customer_orders__element-delivery-status-${id}` }>
-                { status }
-              </p>
-              <p data-testid={ `customer_orders__element-order-date-${id}` }>
-                { formatDate(new Date(saleDate)) }
-              </p>
-              <p>
-                { 'R$ ' }
-                <span
-                  data-testid={ `customer_orders__element-card-price-${id}` }
-                >
-                  { totalPrice.replace(/\./, ',') }
-                </span>
-              </p>
+              <Link to={ `/customer/orders/${id}` } style={ { textDecoration: 'none' } }>
+                <p>
+                  Pedido
+                  {' '}
+                  <span
+                    data-testid={ `customer_orders__element-order-id-${id}` }
+                  >
+                    { id }
+                  </span>
+                </p>
+                <p data-testid={ `customer_orders__element-delivery-status-${id}` }>
+                  { status }
+                </p>
+                <p data-testid={ `customer_orders__element-order-date-${id}` }>
+                  { formatDate(new Date(saleDate)) }
+                </p>
+                <p>
+                  { 'R$ ' }
+                  <span
+                    data-testid={ `customer_orders__element-card-price-${id}` }
+                  >
+                    { totalPrice.replace(/\./, ',') }
+                  </span>
+                </p>
+              </Link>
             </div>
           ),
         )
