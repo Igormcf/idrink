@@ -49,9 +49,9 @@ export default function RegisterInput() {
       }),
     };
     const sameUser = users.some(
-      ({name, email}) => name === userName || email === userPassword
+      ({ name, email }) => name === userName || email === userPassword,
     );
-    if(sameUser) {
+    if (sameUser) {
       setUserExists(true);
     }
     const response = await fetch(url, requestOptions);
@@ -156,17 +156,17 @@ export default function RegisterInput() {
       <Button
         dataTestid="admin_manage__button-register"
         disabled={ isNotFormValid() }
-        onClick={ () => { setUserExists(false);buttonRegister(); } }
+        onClick={ () => { setUserExists(false); buttonRegister(); } }
       >
         Cadastrar
       </Button>
-      
+
       {
         userExists && (
           <p data-testid="admin_manage__element-invalid-register">
             Usuário já cadastrado
           </p>
-          )
+        )
       }
 
       <table>
