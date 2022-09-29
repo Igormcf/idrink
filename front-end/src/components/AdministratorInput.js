@@ -54,19 +54,9 @@ export default function RegisterInput() {
     if (sameUser) {
       setUserExists(true);
     }
-    const response = await fetch(url, requestOptions);
-    setChangeStatus(response.status);
-    /* const { status } = response;
-    const data = await response.json();
-    if (status === status201) {
-      localStorage.setItem(
-        'user',
-        JSON.stringify(data),
-      );
-      history.push('/customer/products');
-    } else {
-      setIsVisibleMessage(true);
-    } */
+    await fetch(url, requestOptions);
+    setChangeStatus(!changeStatus);
+    console.log(changeStatus);
   };
 
   const removeUserById = async (id) => {
@@ -81,8 +71,9 @@ export default function RegisterInput() {
         Authorization: data.token,
       },
     };
-    const response = await fetch(url, fetchOptions);
-    setChangeStatus(response.status);
+    await fetch(url, fetchOptions);
+    setChangeStatus(!changeStatus);
+    console.log(changeStatus);
   };
 
   useEffect(() => {

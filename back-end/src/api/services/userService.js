@@ -8,7 +8,7 @@ const getAllUsers = async () => {
 const deletUser = async (id) => {
   await User.destroy({ where: { id } });
 
-  return { statusCode: 201, result: { messege: 'Deleted user!' } };
+  return { statusCode: 204, result: { messege: 'Deleted user!' } };
 };
 
 module.exports = {
