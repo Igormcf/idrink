@@ -8,7 +8,7 @@ export default function RegisterInput() {
   const [userPassword, setUserPassword] = useState('');
   const [role, setRole] = useState('');
   const [users, setUsers] = useState([]);
-  const [removeStatus, setRemoveStatus] = useState(false);
+  const [changeStatus, setChangeStatus] = useState(false);
   //  const [isVisibleMessage, setIsVisibleMessage] = useState(false);
   // const [isVisibleMessageEmail, setIsVisibleMessageEmail] = useState(false);
   //  const history = useHistory();
@@ -30,7 +30,7 @@ export default function RegisterInput() {
   );
 
   const buttonRegister = async () => {
-    const url = 'http://localhost:3001/admin/manage';
+    const url = 'http://localhost:3001/register'; // 'http://localhost:3001/admin/manage';
     const data = JSON.parse(localStorage.getItem('user'));
     const requestOptions = {
       method: 'POST',
@@ -47,7 +47,8 @@ export default function RegisterInput() {
         role,
       }),
     };
-    await fetch(url, requestOptions);
+    response = await fetch(url, requestOptions);
+    setChangeStatus(response.status);
     /* const { status } = response;
     const data = await response.json();
     if (status === status201) {
@@ -74,7 +75,7 @@ export default function RegisterInput() {
       },
     };
     const response = await fetch(url, fetchOptions);
-    setRemoveStatus(response.status);
+    setChangeStatus(response.status);
   };
 
   useEffect(() => {
@@ -92,7 +93,7 @@ export default function RegisterInput() {
       setUsers(userList);
     };
     initialUsers();
-  }, [removeStatus]);
+  }, [changeStatus]);
 
   return (
     <div>
