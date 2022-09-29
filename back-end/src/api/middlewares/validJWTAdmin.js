@@ -16,7 +16,11 @@ module.exports = async (req, res, next) => {
     const decodeToken = jwt.verify(token, secret);
     
     req.user = decodeToken;
-    console.log(decodeToken, 'decode!!');
+    const { role } = decodeToken;
+
+    if (role !== 'administrator') {
+      return res.status(401).json({ message: 'Access denied!' });
+    }
 
     return next();
   } catch (err) {
