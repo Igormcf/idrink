@@ -18,7 +18,7 @@ const login = async ({ email, password }) => {
 
   const secret = await JWT_SECRET();
   const { name, email: userEmail, role } = findUser;
-  const payload = { email, id: findUser.id };
+  const payload = { email, id: findUser.id, role };
   const token = jwt.sign(payload, secret, config);
   
   return { statusCode: 200, result: { name, email: userEmail, role, token } };

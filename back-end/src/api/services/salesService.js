@@ -33,7 +33,7 @@ const getAllSalesByUser = async ({ id }) => {
     },
   );
 
-  if (!response) return { statusCode: 404, result: 'sale not found' };
+  if (!response) return { statusCode: 404, result: { messege: 'sale not found' } };
 
   return { statusCode: 200, result: response };
 };
@@ -50,7 +50,7 @@ const getSaleById = async (userId, saleId) => {
     },
   );
 
-  if (!response) return { statusCode: 404, result: 'sale not found' };
+  if (!response) return { statusCode: 404, result: { messege: 'sale not found' } };
 
   return { statusCode: 200, result: response };
 };

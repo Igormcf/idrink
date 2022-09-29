@@ -14,7 +14,7 @@ const getAllSalesBySeller = async ({ id }) => {
     },
   );
 
-  if (response.length === 0) return { statusCode: 404, result: NOT_FOUND };
+  if (response.length === 0) return { statusCode: 404, result: { messege: NOT_FOUND } };
   
   return { statusCode: 200, result: response };
 };
@@ -31,7 +31,7 @@ const getSaleSellerById = async (sellerId, saleId) => {
     },
   );
 
-  if (!response) return { statusCode: 404, result: NOT_FOUND };
+  if (!response) return { statusCode: 404, result: { messege: NOT_FOUND } };
 
   return { statusCode: 200, result: response };
 };
@@ -39,7 +39,7 @@ const getSaleSellerById = async (sellerId, saleId) => {
 const updateSalesBySeller = async ({ id, newStatus }) => {
   const findSales = await Sale.findByPk(id);
 
-  if (!findSales) return { statusCode: 404, result: NOT_FOUND };
+  if (!findSales) return { statusCode: 404, result: { messege: NOT_FOUND } };
 
   await Sale.update({ status: newStatus }, { where: { id } });
 

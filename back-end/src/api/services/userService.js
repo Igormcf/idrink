@@ -5,6 +5,13 @@ const getAllUsers = async () => {
   return { statusCode: 200, result: users };
 };
 
+const deletUser = async (id) => {
+  await User.destroy({ where: { id } });
+
+  return { statusCode: 201, result: { messege: 'Deleted user!' } };
+};
+
 module.exports = {
   getAllUsers,
+  deletUser,
 };
