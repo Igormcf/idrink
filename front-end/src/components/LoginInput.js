@@ -42,8 +42,10 @@ export default function LoginInput() {
         );
         if (data.role === 'seller') {
           history.push('/seller/orders');
-        } else {
+        } else if (data.role === 'customer') {
           history.push('/customer/products');
+        } else {
+          history.push('/admin/manage');
         }
       } else {
         setIsVisibleMessage(true);
@@ -63,8 +65,10 @@ export default function LoginInput() {
     if (data) {
       if (data.role === 'seller') {
         history.push('/seller/orders');
-      } else {
+      } else if (data.role === 'customer') {
         history.push('/customer/products');
+      } else {
+        history.push('/admin/manage');
       }
     }
   }, [history]);
