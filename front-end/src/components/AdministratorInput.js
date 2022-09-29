@@ -9,6 +9,7 @@ export default function RegisterInput() {
   const [role, setRole] = useState('');
   const [users, setUsers] = useState([]);
   const [changeStatus, setChangeStatus] = useState(false);
+  const [userExists, setUserExists] = useState(false);
   //  const [isVisibleMessage, setIsVisibleMessage] = useState(false);
   // const [isVisibleMessageEmail, setIsVisibleMessageEmail] = useState(false);
   //  const history = useHistory();
@@ -47,7 +48,13 @@ export default function RegisterInput() {
         role,
       }),
     };
-    response = await fetch(url, requestOptions);
+    const sameUser = users.some(
+      ({ name, email }) => name === userName || email === userPassword,
+    );
+    if (sameUser) {
+      setUserExists(true);
+    }
+    const response = await fetch(url, requestOptions);
     setChangeStatus(response.status);
     /* const { status } = response;
     const data = await response.json();
@@ -149,10 +156,18 @@ export default function RegisterInput() {
       <Button
         dataTestid="admin_manage__button-register"
         disabled={ isNotFormValid() }
-        onClick={ buttonRegister }
+        onClick={ () => { setUserExists(false); buttonRegister(); } }
       >
         Cadastrar
       </Button>
+
+      {
+        userExists && (
+          <p data-testid="admin_manage__element-invalid-register">
+            Usuário já cadastrado
+          </p>
+        )
+      }
 
       <table>
         <thead>
