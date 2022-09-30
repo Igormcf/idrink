@@ -74,8 +74,8 @@ export default function LoginInput() {
   }, [history]);
 
   return (
-    <form>
-      <label htmlFor="email">
+    <form className="form-login">
+      <label htmlFor="email" className="label-form">
         Login
         <input
           data-testid="common_login__input-email"
@@ -86,7 +86,7 @@ export default function LoginInput() {
         />
       </label>
 
-      <label htmlFor="password">
+      <label htmlFor="password" className="label-form">
         Senha
         <input
           data-testid="common_login__input-password"
@@ -101,6 +101,7 @@ export default function LoginInput() {
         dataTestid="common_login__button-login"
         disabled={ isNotLoginValid() }
         onClick={ buttonLogin }
+        className="button-login"
       >
         LOGIN
       </Button>
@@ -108,16 +109,18 @@ export default function LoginInput() {
       <Button
         dataTestid="common_login__button-register"
         onClick={ buttonRegister }
+        className="button-register"
       >
         Ainda não tenho conta
       </Button>
 
       {
-        isVisibleMessage && (
-          <p data-testid="common_login__element-invalid-email">
-            Email ou Senha invalida
+        isVisibleMessage ? (
+          <p data-testid="common_login__element-invalid-email" className="error-message">
+            Email ou Senha inválida
           </p>
         )
+          : <p className="error-message invisible">text</p>
       }
     </form>
   );
