@@ -12,7 +12,10 @@
 .btn {
   align-items: center;
   background: transparent;
+  text-decoration: none;
   border: none;
+  color: white;
+  padding: 0 20px;
   border-radius: 4px;
   color: #3e3e3e;
   cursor: pointer;
@@ -34,6 +37,8 @@
   cursor: pointer;
   font-size: 1rem;
   line-height: 1.25em;
+  color: #3e3e3e;
+  cursor: pointer;
 }
 
 .cart-btn {
@@ -94,6 +99,7 @@
 
 .plus-minus_btn {
   font-size: large;
+  color: white;
   height: auto;
   margin: 0;
   min-width: auto;

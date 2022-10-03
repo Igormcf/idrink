@@ -1,15 +1,118 @@
+:root {
+  --red-first: #c21010;
+  --red-second: #e64848;
+  --beige: #fffdeb;
+  --green: #cfe8a9;
+  --dark-green-status: #184d47;
+  --green-status: #96bb7c;
+  --yellow-status: #fad586;
+  --red-status: #c64756;
+}
+
 .label-form {
-    display: flex;
-    flex-direction: column;
-    font-weight: 900;
-    gap: 0.4em;
-    width: 100%;
-  
-  }
-  
-  .label-form input {
-    border: none;
-    border-radius: 4px;
-    box-shadow: 4px 3px 7px 0 rgba(150, 150, 150, 0.21);
-    padding: 8px 5px;
-  }
+  display: flex;
+  flex-direction: column;
+  font-weight: 900;
+  gap: 0.4em;
+  width: 100%;
+}
+
+.label-form input,
+.label-form select {
+  background-color: white;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 4px 3px 7px 0 rgba(150, 150, 150, 0.21);
+  border: solid 1px rgb(244, 244, 244);
+  padding: 8px 5px;
+}
+
+.checkout_address {
+  display: flex;
+  gap: 1.2em;
+  padding: 15px;
+  width: 80vw;
+}
+
+.table-checkout {
+  /* display: flex; */
+  /* flex-direction: column; */
+  padding: 0 30px;
+  min-height: 40vh;
+  text-align: center;
+  justify-content: space-between;
+  width: 80vw;
+  margin: auto;
+}
+
+.table-checkout p {
+  text-align: end;
+}
+
+.checkout_address-input-btn {
+  background-color: rgb(250, 250, 250);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  height: 40vh;
+}
+
+.checkout-title {
+  font-size: larger;
+  margin-top: 30px;
+  padding: 0 30px;
+}
+
+.table-line td {
+  margin: 5px 0;
+}
+
+table {
+  border-collapse: separate;
+  border-spacing: 0 5px;
+}
+
+.p-total {
+  display: flex;
+  justify-content: flex-end;
+  width: 80vw;
+  margin: auto;
+  padding: 0 30px;
+}
+
+.p-total p {
+  background-color: var(--red-status);
+  border-radius: 5px;
+  color: white;
+  padding: 8px;
+}
+
+.tr-table td:nth-child(2) {
+  background-color: rgb(244, 244, 244);
+}
+
+.tr-table td:nth-child(1) {
+  background-color: var(--green);
+  border-radius: 5px 0 0 5px;
+}
+
+.tr-table td:nth-child(3) {
+  background-color: var(--green-status);
+}
+
+.tr-table td:nth-child(4) {
+  background-color: #738f5f;
+}
+
+.tr-table td:nth-child(5) {
+  background-color: var(--dark-green-status);
+  color: white;
+}
+
+.tr-table td:nth-child(6) {
+  background-color: var(--red-first);
+  color: white;
+  border-radius: 0 5px 5px 0;
+}
