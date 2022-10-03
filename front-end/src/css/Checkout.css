@@ -1,0 +1,15 @@
+.label-form {
+    display: flex;
+    flex-direction: column;
+    font-weight: 900;
+    gap: 0.4em;
+    width: 100%;
+  
+  }
+  
+  .label-form input {
+    border: none;
+    border-radius: 4px;
+    box-shadow: 4px 3px 7px 0 rgba(150, 150, 150, 0.21);
+    padding: 8px 5px;
+  }

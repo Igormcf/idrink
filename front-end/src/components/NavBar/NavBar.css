@@ -1,0 +1,44 @@
+:root {
+  --red-first: #C21010;
+  --red-second: #E64848;
+  --beige: #fffdeb;
+  --green: #CFE8A9;
+  --dark-green-status: #184D47;
+  --green-status: #96BB7C;
+  --yellow-status: #FAD586;
+  --red-status: #C64756;
+}
+
+.header {
+  width: 100vw;
+  background-color: rgb(244, 244, 244);
+}
+
+.nav-bar {
+  background-color: rgb(244, 244, 244);
+  display: grid;
+  grid-template-columns: auto auto auto;
+  padding: 20px 16px;
+  grid-column-gap: 16px;
+  -moz-column-gap: 16px;
+  column-gap: 16px;
+  align-items: center;
+  max-width: 1278px!important;
+  margin: 0 auto;
+  position: relative;
+}
+
+.user-navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+  color: var(--red-first);
+}
+.nav-bar img {
+  width: 88px;
+}
+
+.nav-buttons {
+  margin-right: 350px;
+}

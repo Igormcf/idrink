@@ -101,7 +101,7 @@ export default function LoginInput() {
         dataTestid="common_login__button-login"
         disabled={ isNotLoginValid() }
         onClick={ buttonLogin }
-        className="button-login"
+        className="btn primary_button"
       >
         LOGIN
       </Button>
@@ -109,7 +109,7 @@ export default function LoginInput() {
       <Button
         dataTestid="common_login__button-register"
         onClick={ buttonRegister }
-        className="button-register"
+        className="btn button-register"
       >
         Ainda não tenho conta
       </Button>
