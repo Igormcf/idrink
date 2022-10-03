@@ -1,6 +1,8 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
-import Button from './Button';
+import Button from '../Button';
+import logo from '../../images/logo.png';
+import './NavBar.css';
 
 function NavBar() {
   const history = useHistory();
@@ -29,6 +31,7 @@ function NavBar() {
         <Button
           dataTestid="customer_products__element-navbar-link-orders"
           onClick={ toOrdersSeller }
+          className="button-navbar btn"
         >
           Pedidos
         </Button>
@@ -38,16 +41,18 @@ function NavBar() {
         <Button
           dataTestid="customer_products__element-navbar-link-orders"
           onClick={ () => {} }
+          className="button-navbar btn"
         >
           Gerenciar usuários
         </Button>
       );
     }
     return (
-      <>
+      <div className="nav-buttons">
         <Button
           dataTestid="customer_products__element-navbar-link-products"
           onClick={ toProducts }
+          className="button-navbar btn"
         >
           Produtos
         </Button>
@@ -55,27 +60,35 @@ function NavBar() {
         <Button
           dataTestid="customer_products__element-navbar-link-orders"
           onClick={ toOrders }
+          className="button-navbar btn"
         >
           Pedidos
         </Button>
-      </>
+      </div>
     );
   };
 
   return (
-    <nav>
-      { navBarButtons() }
+    <header className="header">
+      <nav className="nav-bar">
+        <img src={ logo } alt="logo" />
 
-      <h3 data-testid="customer_products__element-navbar-user-full-name">
-        {user.name}
-      </h3>
-      <Button
-        dataTestid="customer_products__element-navbar-link-logout"
-        onClick={ logout }
-      >
-        Sair
-      </Button>
-    </nav>
+        { navBarButtons() }
+
+        <div className="user-navbar">
+          <h3 data-testid="customer_products__element-navbar-user-full-name">
+            {user.name}
+          </h3>
+          <Button
+            dataTestid="customer_products__element-navbar-link-logout"
+            onClick={ logout }
+            className="btn red_button"
+          >
+            Sair
+          </Button>
+        </div>
+      </nav>
+    </header>
   );
 }
 

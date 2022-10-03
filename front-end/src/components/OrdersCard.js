@@ -47,7 +47,7 @@ function OrdersCard() {
         ordersList.map(
           ({ id, status, saleDate, totalPrice }, index) => (
             <div key={ `order_${index}` }>
-              <Link to={ `/customer/orders/${id}` } style={ { textDecoration: 'none' } }>
+              <Link to={ `/customer/orders/${id}` }>
                 <p>
                   Pedido
                   {' '}

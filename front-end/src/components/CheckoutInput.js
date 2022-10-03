@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Button from './Button';
 import CheckoutAddress from './CheckoutAddress';
+import '../css/Checkout.css';
 
 export default function CheckoutInput() {
   const [userData, setUserData] = useState([]);
@@ -95,6 +96,7 @@ export default function CheckoutInput() {
                     dataTestid={
                       `customer_checkout__element-order-table-remove-${index}`
                     }
+                    className="btn primary_button"
                   >
                     Remover
                   </Button>

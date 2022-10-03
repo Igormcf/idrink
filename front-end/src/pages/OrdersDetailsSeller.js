@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import NavBar from '../components/NavBar';
+import NavBar from '../components/NavBar/NavBar';
 import OrderDetailByIdSeller from '../components/OrderDetailByIdSeller';
 
 function OrdersDetailsSeller() {

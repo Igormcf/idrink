@@ -1,10 +1,13 @@
 import LoginInput from '../components/LoginInput';
 import imgLogin from '../images/img-login.svg';
+import logo from '../images/logo.png';
 import '../css/login.css';
 
 function Login() {
   return (
     <div className="div-login">
+      <img src={ logo } alt="logo" className="img-logo" />
+
       <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" className="img-svg">
         <path
           fill="#FDEDEE"

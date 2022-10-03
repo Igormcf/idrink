@@ -100,6 +100,7 @@ function CheckoutAddress({ totalPrice, arrayOfProducts }) {
         <Button
           dataTestid="customer_checkout__button-submit-order"
           onClick={ finishOrder }
+          className="btn red_button"
         >
           Finalizar Pedido
         </Button>

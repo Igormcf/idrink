@@ -1,0 +1,73 @@
+input[type=number]::-webkit-inner-spin-button { 
+  -webkit-appearance: none;
+  
+}
+input[type=number] { 
+  -moz-appearance: textfield;
+  appearance: textfield;
+  
+}
+
+.card-products {
+  display: flex;
+  /* grid-template-columns: auto auto auto auto; */
+  flex-wrap: wrap;
+  max-width: 100%;
+  /* justify-content: center; */
+  /* gap: 0.8em; */
+  /* padding: 0 3em; */
+}
+
+.card-product {
+  align-items: center;
+  /* width: 100%; */
+  margin: 60px auto;
+  border: solid 2px rgb(244, 244, 244);
+  border-radius: 7px;
+  box-shadow: 5px 5px 10px -2px rgba(150, 150, 150, 0.24)
+}
+
+.input-card {
+  padding: 6px 8px;
+  width: 50px;
+  text-align: center;
+  font-weight: 500;
+  font-size: large;
+  /* min-width: 30px; */
+}
+
+.card-product img {
+  /* width: 100%; */
+  max-width: 320px;
+  height: 320px;
+  margin: 15px;
+}
+
+.price {
+  position: absolute;
+  margin: 15px;
+
+}
+
+.plus-minus_div {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  width: 100%;
+  margin: 0 auto;
+  justify-content: center;
+}
+
+.product_name {
+  text-align: center;
+}
+
+.name-input_product {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  /* margin-top: 15px; */
+  background-color: #FDEDEE;
+  padding: 15px 0;
+  box-shadow: inset 0px 5px 10px -2px rgb(150 150 150 / 24%);
+
+}

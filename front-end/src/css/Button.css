@@ -1,0 +1,100 @@
+:root {
+  --red-first: #C21010;
+  --red-second: #E64848;
+  --beige: #fffdeb;
+  --green: #CFE8A9;
+  --dark-green-status: #184D47;
+  --green-status: #96BB7C;
+  --yellow-status: #FAD586;
+  --red-status: #C64756;
+}
+
+.btn {
+  background: transparent;
+  text-decoration: none;
+  color: #3e3e3e;
+  border: none;
+  padding: 0 20px;
+  border-radius: 4px;
+  margin: 3px 0;
+  height: 50px;
+  font-weight: 900;
+  transition: .1s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  min-width: 100px;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+.button-navbar {
+  font-size: 1rem;
+  line-height: 1.25em;
+  cursor: pointer;
+}
+
+.cart-btn {
+  font-size: 0.8em;
+  background-color: var(--red-first);
+  color: white;
+  height: 40px;
+  min-width: 80px;
+  padding: 0 15px;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 2;
+}
+
+.primary_button {
+  background-color: var(--red-first);
+  color: white;
+  cursor: pointer;
+  font-weight: 900;
+  width: 100%;
+  border-radius: 4px;
+  box-shadow: 4px 3px 7px 0 rgba(150, 150, 150, 0.21);
+  padding: 8px 5px;
+}
+
+
+.primary_button:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.primary_button:active {
+  background-color: var(--red-second);
+}
+
+.button-register {
+  background: none;
+  border: none;
+  color: var(--red-first);
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.red_button {
+  background-color: var(--red-first);
+  color: white;
+}
+
+.plus-minus_btn {
+  height: auto;
+  min-width: auto;
+  font-size: large;
+  margin: 0;
+}
+
+.plus_btn {
+  border-radius: 0 5px 5px 0;
+}
+
+.minus_btn {
+  border-radius: 5px 0 0 5px;
+
+}
