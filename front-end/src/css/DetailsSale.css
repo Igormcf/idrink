@@ -1,0 +1,107 @@
+.main-details {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  justify-content: center;
+  padding: 2em;
+}
+
+.p-status {
+  border: solid 1px black;
+  border-radius: 5px;
+  font-size: 0.8em;
+  font-weight: 700;
+  padding: 0.3em;
+  text-transform: uppercase;
+}
+
+.pendente {
+  background-color: var(--beige);
+  color: black;
+}
+
+.preparando {
+  background-color: var(--green-status);
+  color: black;
+}
+
+.transito {
+  background-color: var(--yellow-status);
+  color: black;
+}
+
+.entregue {
+  background-color: var(--dark-green-status);
+  color: white;
+}
+
+.date-details {
+  background-color: var(--beige);
+  color: black;
+}
+
+.main-details p {
+  font-weight: 900;
+}
+
+.infos-details {
+  align-items: center;
+  background-color: rgb(244, 244, 244);
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5em;
+  width: 80vw;
+}
+
+table {
+  border-collapse: separate;
+  border-spacing: 0 5px;
+  text-align: center;
+  width: 80vw;
+}
+
+table td {
+  padding: 0.3em 0;
+}
+
+.p-total {
+  display: flex;
+  justify-content: flex-end;
+  width: 80vw;
+}
+
+.p-total p {
+  background-color: var(--red-status);
+  border-radius: 5px;
+  color: white;
+  padding: 8px;
+}
+
+.description {
+  width: 700px;
+}
+
+.tr-table td:nth-child( 2 ) {
+  background-color: rgb(244, 244, 244);
+}
+
+.tr-table td:nth-child( 1 ) {
+  background-color: var(--green);
+  border-radius: 5px 0 0 5px;
+}
+
+.tr-table td:nth-child( 3 ) {
+  background-color: var(--green-status);
+}
+
+.tr-table td:nth-child( 4 ) {
+  background-color: #738f5f;
+}
+
+.tr-table td:nth-child( 5 ) {
+  background-color: var(--dark-green-status);
+  border-radius: 0 5px 5px 0;
+  color: white;
+}
