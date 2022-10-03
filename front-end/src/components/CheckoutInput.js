@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Button from './Button';
 import CheckoutAddress from './CheckoutAddress';
-import '../css/Checkout.css';
 
 export default function CheckoutInput() {
   const [userData, setUserData] = useState([]);
@@ -40,9 +39,9 @@ export default function CheckoutInput() {
   if (userData.length === 0) return '';
 
   return (
-    <>
-      <h1>Finalizar Pedido</h1>
-      <table>
+    <div>
+      <h1 className="checkout-title">Finalizar Pedido</h1>
+      <table className="table-checkout">
         <thead>
           <tr>
             <th>Item</th>
@@ -56,7 +55,7 @@ export default function CheckoutInput() {
         <tbody>
           {
             userData.cart.map(({ name, quantity, price }, index) => (
-              <tr key={ `cartIens_${index}` }>
+              <tr key={ `cartIens_${index}` } className="table-line tr-table">
                 <td
                   data-testid={
                     `customer_checkout__element-order-table-item-number-${index}`
@@ -96,7 +95,7 @@ export default function CheckoutInput() {
                     dataTestid={
                       `customer_checkout__element-order-table-remove-${index}`
                     }
-                    className="btn primary_button"
+                    className="btn"
                   >
                     Remover
                   </Button>
@@ -106,19 +105,22 @@ export default function CheckoutInput() {
           }
         </tbody>
       </table>
-      <p>
-        Total: R$
-        <span
-          data-testid="customer_checkout__element-order-total-price"
-        >
-          { totalPrice(userData.cart) }
-        </span>
-      </p>
+
+      <div className="p-total">
+        <p>
+          Total: R$
+          <span
+            data-testid="customer_checkout__element-order-total-price"
+          >
+            { totalPrice(userData.cart) }
+          </span>
+        </p>
+      </div>
 
       <CheckoutAddress
         totalPrice={ totalPrice(userData.cart) }
         arrayOfProducts={ arrayOfProducts() }
       />
-    </>
+    </div>
   );
 }

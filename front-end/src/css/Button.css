@@ -12,8 +12,8 @@
 .btn {
   background: transparent;
   text-decoration: none;
-  color: #3e3e3e;
   border: none;
+  color: white;
   padding: 0 20px;
   border-radius: 4px;
   margin: 3px 0;
@@ -33,6 +33,7 @@
 .button-navbar {
   font-size: 1rem;
   line-height: 1.25em;
+  color: #3e3e3e;
   cursor: pointer;
 }
 
@@ -87,6 +88,7 @@
   height: auto;
   min-width: auto;
   font-size: large;
+  color: white;
   margin: 0;
 }
 

@@ -4,7 +4,7 @@ import NavBar from '../components/NavBar/NavBar';
 
 function Product() {
   return (
-    <div>
+    <div className="products">
       <NavBar />
       <CardProduct />
     </div>
