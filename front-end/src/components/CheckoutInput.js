@@ -39,7 +39,7 @@ export default function CheckoutInput() {
   if (userData.length === 0) return '';
 
   return (
-    <div>
+    <div className='main-details'>
       <h1 className="checkout-title">Finalizar Pedido</h1>
       <table className="table-checkout">
         <thead>
@@ -55,7 +55,7 @@ export default function CheckoutInput() {
         <tbody>
           {
             userData.cart.map(({ name, quantity, price }, index) => (
-              <tr key={ `cartIens_${index}` } className="table-line tr-table">
+              <tr key={ `cartIens_${index}` } className="table-line tr_table">
                 <td
                   data-testid={
                     `customer_checkout__element-order-table-item-number-${index}`
@@ -95,7 +95,7 @@ export default function CheckoutInput() {
                     dataTestid={
                       `customer_checkout__element-order-table-remove-${index}`
                     }
-                    className="btn"
+                    className="remove-btn"
                   >
                     Remover
                   </Button>

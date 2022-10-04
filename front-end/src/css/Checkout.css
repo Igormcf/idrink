@@ -1,11 +1,19 @@
 :root {
+
   --red-first: #c21010;
+
   --red-second: #e64848;
+
   --beige: #fffdeb;
+
   --green: #cfe8a9;
+
   --dark-green-status: #184d47;
+
   --green-status: #96bb7c;
+
   --yellow-status: #fad586;
+
   --red-status: #c64756;
 }
 
@@ -17,14 +25,21 @@
   width: 100%;
 }
 
-.label-form input,
-.label-form select {
+.label-form input, .label-form select {
   background-color: white;
-  border: none;
+  border: solid 1px rgb(244, 244, 244);
   border-radius: 5px;
   box-shadow: 4px 3px 7px 0 rgba(150, 150, 150, 0.21);
-  border: solid 1px rgb(244, 244, 244);
   padding: 8px 5px;
+}
+
+.main-details {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  justify-content: center;
+  padding: 2em;
 }
 
 .checkout_address {
@@ -35,34 +50,29 @@
 }
 
 .table-checkout {
-  /* display: flex; */
-  /* flex-direction: column; */
-  padding: 0 30px;
-  min-height: 40vh;
-  text-align: center;
-  justify-content: space-between;
-  width: 80vw;
   margin: auto;
-}
-
-.table-checkout p {
-  text-align: end;
+  text-align: center;
+  width: 80vw;
 }
 
 .checkout_address-input-btn {
+  align-items: center;
   background-color: rgb(250, 250, 250);
+  box-shadow: 5px 5px 10px -2px rgba(150, 150, 150, 0.24);
   display: flex;
   flex-direction: column;
-  align-items: center;
+  height: 40vh;
   justify-content: center;
   padding: 30px;
-  height: 40vh;
 }
 
 .checkout-title {
   font-size: larger;
   margin-top: 30px;
-  padding: 0 30px;
+}
+
+table td {
+  padding: 0.3em 0;
 }
 
 .table-line td {
@@ -74,12 +84,12 @@ table {
   border-spacing: 0 5px;
 }
 
+
 .p-total {
   display: flex;
   justify-content: flex-end;
-  width: 80vw;
   margin: auto;
-  padding: 0 30px;
+  width: 80vw;
 }
 
 .p-total p {
@@ -89,30 +99,31 @@ table {
   padding: 8px;
 }
 
-.tr-table td:nth-child(2) {
-  background-color: rgb(244, 244, 244);
-}
-
-.tr-table td:nth-child(1) {
+.tr_table td:nth-child( 1 ) {
   background-color: var(--green);
   border-radius: 5px 0 0 5px;
 }
 
-.tr-table td:nth-child(3) {
+.tr_table td:nth-child( 2 ) {
+  background-color: rgb(244, 244, 244);
+  width: 700px;
+}
+
+.tr_table td:nth-child( 3 ) {
   background-color: var(--green-status);
 }
 
-.tr-table td:nth-child(4) {
+.tr_table td:nth-child( 4 ) {
   background-color: #738f5f;
 }
 
-.tr-table td:nth-child(5) {
+.tr_table td:nth-child( 5 ) {
   background-color: var(--dark-green-status);
   color: white;
 }
 
-.tr-table td:nth-child(6) {
+.tr_table td:nth-child( 6 ) {
   background-color: var(--red-first);
-  color: white;
   border-radius: 0 5px 5px 0;
+  color: white;
 }

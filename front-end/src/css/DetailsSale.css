@@ -79,17 +79,14 @@ table td {
   padding: 8px;
 }
 
-.description {
-  width: 700px;
+.tr-table td:nth-child( 1 ) {
+  background-color: var(--green);
+  border-radius: 5px 0 0 5px;
 }
 
 .tr-table td:nth-child( 2 ) {
   background-color: rgb(244, 244, 244);
-}
-
-.tr-table td:nth-child( 1 ) {
-  background-color: var(--green);
-  border-radius: 5px 0 0 5px;
+  width: 700px;
 }
 
 .tr-table td:nth-child( 3 ) {
