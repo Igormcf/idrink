@@ -1,23 +1,28 @@
 :root {
-  --red-first: #C21010;
-  --red-second: #E64848;
+
+  --red-first: #c21010;
+
+  --red-second: #e64848;
+
   --beige: #fffdeb;
-  --green: #CFE8A9;
-  --dark-green-status: #184D47;
-  --green-status: #96BB7C;
-  --yellow-status: #FAD586;
-  --red-status: #C64756;
+
+  --green: #cfe8a9;
+
+  --dark-green-status: #184d47;
+
+  --green-status: #96bb7c;
+
+  --yellow-status: #fad586;
+
+  --red-status: #c64756;
 }
 
 .btn {
   align-items: center;
   background: transparent;
-  text-decoration: none;
   border: none;
-  color: white;
-  padding: 0 20px;
   border-radius: 4px;
-  color: #3e3e3e;
+  color: white;
   cursor: pointer;
   display: inline-flex;
   font-size: 1em;
@@ -34,11 +39,10 @@
 }
 
 .button-navbar {
+  color: #3e3e3e;
   cursor: pointer;
   font-size: 1rem;
   line-height: 1.25em;
-  color: #3e3e3e;
-  cursor: pointer;
 }
 
 .cart-btn {
@@ -103,8 +107,8 @@
 }
 
 .plus-minus_btn {
-  font-size: large;
   color: white;
+  font-size: large;
   height: auto;
   margin: 0;
   min-width: auto;
@@ -116,4 +120,14 @@
 
 .minus_btn {
   border-radius: 5px 0 0 5px;
+}
+
+.remove-btn {
+  background-color: transparent;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 0.8em;
+  font-weight: 700;
+  text-transform: uppercase;
 }

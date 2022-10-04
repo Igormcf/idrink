@@ -1,40 +1,48 @@
 :root {
-  --red-first: #C21010;
-  --red-second: #E64848;
+
+  --red-first: #c21010;
+
+  --red-second: #e64848;
+
   --beige: #fffdeb;
-  --green: #CFE8A9;
-  --dark-green-status: #184D47;
-  --green-status: #96BB7C;
-  --yellow-status: #FAD586;
-  --red-status: #C64756;
+
+  --green: #cfe8a9;
+
+  --dark-green-status: #184d47;
+
+  --green-status: #96bb7c;
+
+  --yellow-status: #fad586;
+
+  --red-status: #c64756;
 }
 
 .header {
-  width: 100%;
   background-color: rgb(244, 244, 244);
+  width: 100%;
 }
 
 .nav-bar {
-  background-color: rgb(244, 244, 244);
-  display: grid;
-  grid-template-columns: auto auto auto;
-  padding: 20px 16px;
-  grid-column-gap: 16px;
-  -moz-column-gap: 16px;
-  column-gap: 16px;
   align-items: center;
-  max-width: 1278px!important;
+  background-color: rgb(244, 244, 244);
+  column-gap: 16px;
+  display: grid;
+  grid-column-gap: 16px;
+  grid-template-columns: auto auto auto;
   margin: 0 auto;
+  max-width: 1278px;
+  padding: 20px 16px;
   position: relative;
 }
 
 .user-navbar {
-  display: flex;
-  justify-content: center;
   align-items: center;
-  gap: 1em;
   color: var(--red-first);
+  display: flex;
+  gap: 1em;
+  justify-content: center;
 }
+
 .nav-bar img {
   width: 88px;
 }
