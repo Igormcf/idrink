@@ -97,6 +97,11 @@
   color: white;
 }
 
+.red_button:disabled {
+  background-color: #C64756;
+  cursor: not-allowed;
+}
+
 .plus-minus_btn {
   font-size: large;
   color: white;
