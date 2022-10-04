@@ -39,7 +39,7 @@ export default function CheckoutInput() {
   if (userData.length === 0) return '';
 
   return (
-    <div className='main-details'>
+    <div className="main-details">
       <h1 className="checkout-title">Finalizar Pedido</h1>
       <table className="table-checkout">
         <thead>
