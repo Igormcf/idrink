@@ -4,6 +4,7 @@
   flex-direction: column;
   gap: 1em;
   justify-content: center;
+  min-height: 80vh;
   padding: 2em;
 }
 

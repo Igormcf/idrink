@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useHistory } from 'react-router-dom';
-// import Button from './Button';
+import '../css/Orders.css';
 
 function OrdersCard() {
   const status200 = 200;
@@ -41,42 +41,55 @@ function OrdersCard() {
     initialOrders();
   }, [history]);
 
+  const statusColor = (status) => {
+    if (status === 'Pendente') return 'status-card pendente';
+    if (status === 'Preparando') return 'status-card preparando';
+    if (status === 'Em Trânsito') return 'status-card transito';
+    if (status === 'Entregue') return 'status-card entregue';
+  };
+
   return (
-    <div>
+    <main className="main-details">
       {
         ordersList.map(
           ({ id, status, saleDate, totalPrice }, index) => (
-            <div key={ `order_${index}` }>
+            <div key={ `order_${index}` } className="cardSale">
               <Link to={ `/customer/orders/${id}` }>
-                <p>
-                  Pedido
-                  {' '}
-                  <span
-                    data-testid={ `customer_orders__element-order-id-${id}` }
-                  >
-                    { id }
-                  </span>
-                </p>
-                <p data-testid={ `customer_orders__element-delivery-status-${id}` }>
-                  { status }
-                </p>
-                <p data-testid={ `customer_orders__element-order-date-${id}` }>
-                  { formatDate(new Date(saleDate)) }
-                </p>
-                <p>
-                  { 'R$ ' }
-                  <span
-                    data-testid={ `customer_orders__element-card-price-${id}` }
-                  >
-                    { totalPrice.replace(/\./, ',') }
-                  </span>
-                </p>
+                <div className="pedido-card">
+                  <p>
+                    Pedido
+                    {' '}
+                    <span
+                      data-testid={ `customer_orders__element-order-id-${id}` }
+                    >
+                      { id }
+                    </span>
+                  </p>
+                </div>
+                <div className={ statusColor(status) }>
+                  <p data-testid={ `customer_orders__element-delivery-status-${id}` }>
+                    { status }
+                  </p>
+                </div>
+                <section className="section-card">
+                  <p data-testid={ `customer_orders__element-order-date-${id}` }>
+                    { formatDate(new Date(saleDate)) }
+                  </p>
+                  <p>
+                    { 'R$ ' }
+                    <span
+                      data-testid={ `customer_orders__element-card-price-${id}` }
+                    >
+                      { totalPrice.replace(/\./, ',') }
+                    </span>
+                  </p>
+                </section>
               </Link>
             </div>
           ),
         )
       }
-    </div>
+    </main>
   );
 }
 

@@ -1,0 +1,44 @@
+.cardSale {
+  background-color: rgb(244, 244, 244);
+  border: 2px solid #e0e0e0;
+  border-radius: 5px;
+  box-shadow: 5px 5px 10px -2px rgba(150, 150, 150, 0.24);
+  height: 80px;
+  min-width: 520px;
+  padding-right: 0.3em;
+}
+
+.cardSale a {
+  align-items: center;
+  color: black;
+  display: flex;
+  justify-content: space-between;
+  text-decoration: none;
+}
+
+.pedido-card {
+  background-color: #cfe8a9;
+  border-radius: 5px 0 0 5px;
+  padding: 1.15em;
+}
+
+.status-card {
+  align-items: center;
+  border-radius: 5px;
+  display: flex;
+  height: 60px;
+  justify-content: center;
+  width: 180px;
+}
+
+.section-card {
+  align-items: center;
+  background-color: #fad586;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  height: 60px;
+  justify-content: center;
+  padding-left: 1em;
+  padding-right: 1em;
+}

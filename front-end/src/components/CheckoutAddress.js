@@ -59,6 +59,8 @@ function CheckoutAddress({ totalPrice, arrayOfProducts }) {
     }
   };
 
+  const isNotValidAdress = () => address.length === 0 || number === 0;
+
   return (
     <>
       <h1 className="checkout-title">Detalhes e Endereço para a Entrega</h1>
@@ -104,6 +106,7 @@ function CheckoutAddress({ totalPrice, arrayOfProducts }) {
           dataTestid="customer_checkout__button-submit-order"
           onClick={ finishOrder }
           className="btn red_button"
+          disabled={ isNotValidAdress() }
         >
           Finalizar Pedido
         </Button>
