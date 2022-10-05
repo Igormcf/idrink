@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Button from './Button';
+import '../css/DetailsSale.css';
 
 function OrderDetailByIdSeller({ orderId }) {
   const status200 = 200;
@@ -68,44 +69,59 @@ function OrderDetailByIdSeller({ orderId }) {
     setNewStatus(status);
   };
 
+  const statusColor = () => {
+    if (orderData.status === 'Pendente') return 'p-status pendente';
+    if (orderData.status === 'Preparando') return 'p-status preparando';
+    if (orderData.status === 'Em Trânsito') return 'p-status transito';
+    if (orderData.status === 'Entregue') return 'p-status entregue';
+  };
+
   return (
-    <>
-      <p>
-        Pedido
-        {' '}
-        <span
-          data-testid="seller_order_details__element-order-details-label-order-id"
+    <main className="main-details">
+      <span className="infos-details">
+        <p>
+          Pedido
+          {' '}
+          <span
+            data-testid="seller_order_details__element-order-details-label-order-id"
+          >
+            {orderData.id}
+          </span>
+        </p>
+        <p
+          data-testid="seller_order_details__element-order-details-label-order-date"
+          className="p-status date-details"
         >
-          { orderData.id }
-        </span>
-      </p>
-      <p data-testid="seller_order_details__element-order-details-label-order-date">
-        { formatDate(new Date(orderData.saleDate)) }
-      </p>
-      <p
-        data-testid="seller_order_details__element-order-details-label-delivery-status"
-      >
-        { orderData.status }
-      </p>
-      <Button
-        dataTestid="seller_order_details__button-preparing-check"
-        onClick={ () => { fetchStatus('Preparando'); } }
-        disabled={ orderData.status !== 'Pendente' }
-      >
-        Preparar pedido
-      </Button>
-      <Button
-        dataTestid="seller_order_details__button-dispatch-check"
-        onClick={ () => { fetchStatus('Em Trânsito'); } }
-        disabled={ orderData.status !== 'Preparando' }
-      >
-        Saiu para Entrega
-      </Button>
-      <table>
+          {formatDate(new Date(orderData.saleDate))}
+        </p>
+        <p
+          data-testid="seller_order_details__element-order-details-label-delivery-status"
+          className={ statusColor() }
+        >
+          {orderData.status}
+        </p>
+        <Button
+          dataTestid="seller_order_details__button-preparing-check"
+          onClick={ () => { fetchStatus('Preparando'); } }
+          disabled={ orderData.status !== 'Pendente' }
+          className="btn-details"
+        >
+          Preparar pedido
+        </Button>
+        <Button
+          dataTestid="seller_order_details__button-dispatch-check"
+          onClick={ () => { fetchStatus('Em Trânsito'); } }
+          disabled={ orderData.status !== 'Preparando' }
+          className="btn-details"
+        >
+          Saiu para Entrega
+        </Button>
+      </span>
+      <table className="table-details">
         <thead>
           <tr>
             <th>Item</th>
-            <th>Descrição</th>
+            <th className="description">Descrição</th>
             <th>Quantidade</th>
             <th>Valor Unitário</th>
             <th>Sub-total</th>
@@ -114,56 +130,58 @@ function OrderDetailByIdSeller({ orderId }) {
         <tbody>
           {
             orderData.products.map(({ name, quantity, price }, index) => (
-              <tr key={ `cartIens_${index}` }>
+              <tr key={ `cartIens_${index}` } className="tr-table">
                 <td
                   data-testid={
                     `seller_order_details__element-order-table-item-number-${index}`
                   }
                 >
-                  { index + 1 }
+                  {index + 1}
                 </td>
                 <td
                   data-testid={
                     `seller_order_details__element-order-table-name-${index}`
                   }
                 >
-                  { name }
+                  {name}
                 </td>
                 <td
                   data-testid={
                     `seller_order_details__element-order-table-quantity-${index}`
                   }
                 >
-                  { quantity }
+                  {quantity}
                 </td>
                 <td
                   data-testid={
                     `seller_order_details__element-order-table-unit-price-${index}`
                   }
                 >
-                  { price.replace(/\./, ',') }
+                  {price.replace(/\./, ',')}
                 </td>
                 <td
                   data-testid={
                     `seller_order_details__element-order-table-sub-total-${index}`
                   }
                 >
-                  { (quantity * price).toFixed(2).replace(/\./, ',') }
+                  {(quantity * price).toFixed(2).replace(/\./, ',')}
                 </td>
               </tr>
             ))
           }
         </tbody>
       </table>
-      <p>
-        Total: R$
-        <span
-          data-testid="seller_order_details__element-order-total-price"
-        >
-          { orderData.totalPrice.replace(/\./, ',') }
-        </span>
-      </p>
-    </>
+      <div className="p-total">
+        <p>
+          Total: R$
+          <span
+            data-testid="seller_order_details__element-order-total-price"
+          >
+            {orderData.totalPrice.replace(/\./, ',')}
+          </span>
+        </p>
+      </div>
+    </main>
   );
 }
 
