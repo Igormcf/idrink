@@ -48,15 +48,15 @@ export default function RegisterInput() {
         role,
       }),
     };
+    setUserExists(false);
     const sameUser = users.some(
-      ({ name, email }) => name === userName || email === userPassword,
+      ({ email }) => email === userEmail,
     );
     if (sameUser) {
       setUserExists(true);
     }
     await fetch(url, requestOptions);
     setChangeStatus(!changeStatus);
-    console.log(changeStatus);
   };
 
   const removeUserById = async (id) => {
@@ -130,7 +130,6 @@ export default function RegisterInput() {
 
       <label htmlFor="user-type">
         Tipo
-
         <select
           id="user-type"
           data-testid="admin_manage__select-role"
@@ -147,17 +146,18 @@ export default function RegisterInput() {
       <Button
         dataTestid="admin_manage__button-register"
         disabled={ isNotFormValid() }
-        onClick={ () => { setUserExists(false); buttonRegister(); } }
+        onClick={ () => { buttonRegister(); } }
       >
         Cadastrar
       </Button>
 
       {
-        userExists && (
+        userExists ? (
           <p data-testid="admin_manage__element-invalid-register">
-            Usuário já cadastrado
+            E-mail já cadastrado!
           </p>
         )
+          : <p className="error-message invisible">text</p>
       }
 
       <table>
