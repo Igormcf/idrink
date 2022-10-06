@@ -1,0 +1,66 @@
+.form-admin {
+  align-items: center;
+  background-color: rgb(244, 244, 244);
+  border: 2px solid rgb(216, 215, 215);
+  border-radius: 6px;
+  box-shadow: 14px 16px 33px -3px rgba(150, 150, 150, 0.26);
+  display: flex;
+  gap: 0.6em;
+  justify-content: center;
+  padding: 1em;
+}
+
+.form-admin label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2em;
+}
+
+.form-admin label > input, .form-admin label > select {
+  border: 2px solid rgb(216, 215, 215);
+  border-radius: 5px;
+  height: 35px;
+  padding-left: 0.5em;
+}
+
+.form-admin label > select {
+  width: 200px;
+}
+
+.table-adm {
+  border-collapse: separate;
+  border-radius: 6px;
+  border-spacing: 0 5px;
+  text-align: center;
+  width: 80vw;
+}
+
+.tr-table-adm td {
+  background-color: rgb(244, 244, 244);
+}
+
+.tr-table-adm td:nth-child( 1 ) {
+  background-color: var(--green);
+  border-radius: 6px 0 0 6px;
+}
+
+.tr-table-adm td:nth-last-child( 1 ) {
+  background: none;
+}
+
+.tr-table-adm td:nth-last-child( 2 ) {
+  border-radius: 0 6px 6px 0;
+}
+
+.btn-table-adm {
+  border: 2px solid #c21010;
+  border-radius: 5px;
+  color: #c21010;
+  font-weight: 700;
+  padding: 0.3em 1em;
+}
+
+.btn-table-adm:active {
+  background-color: #c21010;
+  color: white;
+}
