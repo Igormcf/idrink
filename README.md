@@ -10,4 +10,4 @@ Este é um projeto `Full-Stack` desenvolvido em grupo, onde criamos e integramos
  
  As tabelas do banco de dados, desenvolvido para a criação da API que alimenta a aplicação, possui as seguintes relações:
  
-  ![Diagrama relacional]
+  ![Diagrama relacional](https://github.com/Igormcf/idrink/blob/main/front-end/src/images/tables.png)
