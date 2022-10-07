@@ -10,4 +10,33 @@ Este é um projeto `Full-Stack` desenvolvido em grupo, onde criamos e integramos
  
  As tabelas do banco de dados, desenvolvido para a criação da API que alimenta a aplicação, possui as seguintes relações:
  
+  ![Diagrama Relacional](https://github.com/Igormcf/idrink/blob/main/front-end/src/images/tables.png)
+
+## Orientações para a Execução:
+
+<details>
+  <summary><strong>Localmente</strong></summary><br />
   
+  - Após a clonagem do repositório, instale as dependências com `npm install` .
+</details>
+
+<details>
+  <summary><strong>Informações importantes</strong></summary>
+  
+  - O projeto só instala as dependências com a versão 16 do `node` para evitar conflitos de versão, caso não tenha essa versão instalada você pode use o `nvm` para fazer o gerenciamento de versões;
+  - Para testar o projeto localmente, é fundamental configurar o arquivo de variáveis de ambiente `.env` dentro da pasta `./back-end` (ele é o único .env no projeto), conforme exemplo em `.env.example`, na mesma pasta;
+  - Inicie o projeto pela raiz, utilizando o comando `npm i`. Após isso, é possível fazer a instalação de ambos os aplicativos (back e front) através da raiz do projeto, utilizando o comando `npm run dev:prestart` (esse comando também restaurará o banco de dados, caso o .env esteja configurado corretamente).
+</details>
+
+<details>
+  <summary><strong>Scripts importantes do <code>package.json</code> principal</strong></summary>
+  
+  Scripts para uso na raiz do projeto (`./package.json`) e não nas aplicações individuais `./front-end/package.json` e `./back-end/package.json`:
+  
+  - `npm start`: Limpa as portas `3000` e `3001` e sobe a aplicação com `pm2` em modo `fork` (uma instância para cada aplicação). Nesse modo, as alterações não são assistidas;
+  - `npm stop`: Para e deleta as aplicações rodando no `pm2`;
+  - `npm run dev`: Limpa as portas `3000` e `3001` e sobe a aplicação com `pm2` em modo `fork` (uma instância pra cada aplicação). Nesse modo, as atualizações são assistidas (modo `watch`);
+  - `npm run dev:prestart`: A partir da raiz, esse comando faz o processo de instalação de dependências (`npm i`) nos dois projetos (`./front-end` e `./back-end`) e roda o `Sequelize` no `./back-end`;
+  - `npm run db:reset`: Roda os scripts do `Sequelize` restaurando o banco de dados de desenvolvimento. Utilize esse script caso ocorra algum problema no seu banco local;
+  - `npm run db:reset:debug`: Além da mesma função do comando anterior, esse também é capaz de retornar informações detalhadas de erros (quando ocorrerem no processo);
+</details>
