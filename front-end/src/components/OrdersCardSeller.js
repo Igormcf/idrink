@@ -25,6 +25,7 @@ function OrdersCardSeller() {
       const data = JSON.parse(localStorage.getItem('user'));
       const fetchOptions = {
         method: 'GET',
+        mode: 'cors',
         headers: {
           Authorization: data.token,
         },

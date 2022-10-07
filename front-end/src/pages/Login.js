@@ -4,6 +4,10 @@ import logo from '../images/logo.png';
 import '../css/login.css';
 
 function Login() {
+  const alteraTitle = () => {
+    document.title = 'idrink';
+  };
+  alteraTitle();
   return (
     <div className="div-login">
       <img src={ logo } alt="logo" className="img-logo" />
