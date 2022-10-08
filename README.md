@@ -4,6 +4,10 @@
 
 ![Fluxo cliente](https://github.com/Igormcf/idrink/blob/main/front-end/src/images/fluxo-cliente.gif)
 
+## Fluxo da pessoa vendedora:
+
+![Fluxo vendedor](https://github.com/Igormcf/idrink/blob/main/front-end/src/images/fluxo-vendedor.gif)
+
 ## Sobre o projeto:
 
 Este é um projeto `Full-Stack` desenvolvido em grupo, onde criamos e integramos tanto o `Back-End` quanto o `Front-End`, para a criação de um app de delivery de uma distribuidora de bebidas. Dentre as funcionalidades do app, destacam-se:
