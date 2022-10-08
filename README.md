@@ -12,6 +12,31 @@ Este é um projeto `Full-Stack` desenvolvido em grupo, onde criamos e integramos
  
   ![Diagrama Relacional](https://github.com/Igormcf/idrink/blob/main/front-end/src/images/tables.png)
 
+## Tecnologias utilizadas:
+
+<details>
+  <summary><strong>Front-End</strong></summary>
+
+  - JavaScript;
+  - React;
+  - React Router;
+  - Context API.
+</details>
+
+<details>
+  <summary><strong>Back-End</strong></summary>
+
+  - JavaScript;
+  - Node.Js;
+  - Express;
+  - Sequelize;
+  - MySQL;
+  - Json Web Token (JWT);
+  - md5;
+  - cors;
+  - express-async-errors.
+</details>
+
 ## Orientações para a Execução:
 
 <details>
