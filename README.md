@@ -2,7 +2,7 @@
 
 ## Fluxo da pessoa cliente:
 
-
+![Fluxo cliente](https://github.com/Igormcf/idrink/blob/main/front-end/src/images/fluxo-cliente.gif)
 
 ## Sobre o projeto:
 
