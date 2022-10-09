@@ -46,7 +46,8 @@ Este é um projeto `Full-Stack` desenvolvido em grupo, onde criamos e integramos
   - Json Web Token (JWT);
   - md5;
   - cors;
-  - express-async-errors.
+  - express-async-errors;
+  - Joi.
 </details>
 
 ## Orientações para a Execução:
