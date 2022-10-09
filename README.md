@@ -55,7 +55,7 @@ Este é um projeto `Full-Stack` desenvolvido em grupo, onde criamos e integramos
 <details>
   <summary><strong>Localmente</strong></summary><br />
   
-  - Após a clonagem do repositório, instale as dependências com `npm install` .
+  - Após a clonagem do repositório, instale as dependências com `npm install`.
 </details>
 
 <details>
